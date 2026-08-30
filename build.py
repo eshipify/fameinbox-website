@@ -553,6 +553,11 @@ def build_pricing():
     <h2>Good to know</h2>
     <p>Support is available via support tickets with a 3-day SLA. WhatsApp conversation charges are prepaid via wallet deposit per channel, with a minimum recharge of $20 / ₹1000 per channel. Sending spam marketing to random numbers risks a Meta ban on your business account or numbers. All taxes and payment gateway fees are extra.</p>
   </div>
+  <div class="detail-cta">
+    <h3>Running an agency?</h3>
+    <p>We also offer Sub-Agency Licensing — resell white-label panels to your own clients under your own brand. Get in touch for details and pricing.</p>
+    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
+  </div>
 </div>
 """
     html += footer()
