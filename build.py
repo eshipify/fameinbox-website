@@ -379,24 +379,19 @@ def build_contact():
 <section class="page-hero">
   <span class="eyebrow">Contact</span>
   <h1>Let's get you <span class="accent">set up</span></h1>
-  <p class="sub">Send us your details and our sales team will follow up, or book a demo directly below.</p>
+  <p class="sub">Send us your details on WhatsApp, or book a demo directly below.</p>
 </section>
 <div class="detail-body">
-  <form class="contact-form" action="https://formsubmit.co/sales@fameinbox.com" method="POST">
-    <input type="hidden" name="_subject" value="New lead from fameinbox.com contact form">
-    <input type="hidden" name="_captcha" value="true">
-    <input type="hidden" name="_next" value="https://fameinbox.com/contact.html?sent=1">
-    <label for="cfName">Name</label>
-    <input type="text" id="cfName" name="Name" required placeholder="Your name">
-    <label for="cfPhone">Phone number</label>
-    <input type="tel" id="cfPhone" name="Phone" required placeholder="Your WhatsApp number">
-    <label for="cfEmail">Email</label>
-    <input type="email" id="cfEmail" name="Email" required placeholder="you@company.com">
-    <label for="cfMessage">What are you looking for?</label>
-    <textarea id="cfMessage" name="Message" placeholder="e.g. I want to know more about the WhatsApp API plan"></textarea>
-    <button type="submit">Send to Sales</button>
+  <form class="contact-form" id="waContactForm">
+    <label for="waName">Name</label>
+    <input type="text" id="waName" required placeholder="Your name">
+    <label for="waPhone">Phone number</label>
+    <input type="tel" id="waPhone" required placeholder="Your WhatsApp number">
+    <label for="waMessage">What are you looking for?</label>
+    <textarea id="waMessage" placeholder="e.g. I want to know more about the WhatsApp API plan"></textarea>
+    <button type="submit">Send on WhatsApp</button>
   </form>
-  <p class="contact-note">This sends your details straight to our sales team — or tap the WhatsApp button in the corner for an instant chat.</p>
+  <p class="contact-note">This opens WhatsApp with your details pre-filled — just hit send and our team replies from there.</p>
 
   <div class="detail-cta">
     <h3>Prefer to talk it through?</h3>
@@ -404,6 +399,16 @@ def build_contact():
     <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
   </div>
 </div>
+<script>
+document.getElementById('waContactForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+  var name = document.getElementById('waName').value.trim();
+  var phone = document.getElementById('waPhone').value.trim();
+  var message = document.getElementById('waMessage').value.trim();
+  var text = "Hi, I'm " + name + " (" + phone + "). " + (message || "I'd like to know more about Fame Inbox.");
+  window.open("https://wa.me/918939888107?text=" + encodeURIComponent(text), "_blank");
+});
+</script>
 """
     html += footer()
     with open(os.path.join(ROOT, "contact.html"), "w") as f:
