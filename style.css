@@ -48,9 +48,10 @@ li.has-mega.open .caret{transform:rotate(180deg);}
 /* Mega menu */
 .mega{
   position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-8px);
-  width:820px;max-width:90vw;background:#fff;color:var(--ink);border-radius:var(--radius);
+  width:960px;max-width:92vw;background:#fff;color:var(--ink);border-radius:var(--radius);
   box-shadow:0 24px 48px rgba(80,21,48,.22);padding:28px;display:none;
-  grid-template-columns:repeat(4,1fr);gap:26px;opacity:0;transition:opacity .18s ease, transform .18s ease;
+  grid-template-columns:repeat(3,1fr);gap:26px;opacity:0;transition:opacity .18s ease, transform .18s ease;
+  max-height:75vh;overflow-y:auto;
 }
 li.has-mega.open .mega{display:grid;opacity:1;transform:translateX(-50%) translateY(0);}
 .mega-col-title{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--wine);margin:0 0 16px 0;}

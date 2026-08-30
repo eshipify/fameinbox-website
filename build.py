@@ -13,6 +13,11 @@ ICONS = {
     "sequence": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M17 2l4 4-4 4M3 11V9a4 4 0 014-4h14M7 22l-4-4 4-4M21 13v2a4 4 0 01-4 4H3"/></svg>',
     "inbox": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 12h-6l-2 3h-4l-2-3H2"/><path d="M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11z"/></svg>',
     "payments": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg>',
+    "messenger": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2C6.5 2 2 6.1 2 11.2c0 2.9 1.5 5.5 3.8 7.2V22l3.5-1.9c1 .3 2.1.4 3.2.4 5.5 0 10-4.1 10-9.3S17.5 2 12 2z"/><path d="M7 13l3-3 2.5 2 3.5-4"/></svg>',
+    "instagram": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>',
+    "crm": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>',
+    "builder": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>',
+    "automation": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>',
 }
 
 FEATURES = [
@@ -126,9 +131,64 @@ FEATURES = [
             "Payment confirmations post back into the same conversation automatically, so both your team and the customer have a clear record in one thread."
         ],
     },
+    {
+        "slug": "facebook-messenger",
+        "name": "Facebook Messenger",
+        "cat": "Beyond WhatsApp",
+        "tag": "Automate conversations on Messenger",
+        "icon": "messenger",
+        "body": [
+            "Bring the same automation and shared inbox you use on WhatsApp over to Facebook Messenger — automated replies, chatbots, and full conversation history in one unified view.",
+            "Track engagement across every Messenger conversation and let your whole team collaborate on replies from a single workspace."
+        ],
+    },
+    {
+        "slug": "instagram-automation",
+        "name": "Instagram Automation",
+        "cat": "Beyond WhatsApp",
+        "tag": "Turn DMs and comments into conversations",
+        "icon": "instagram",
+        "body": [
+            "Automatically respond to Instagram DMs, track comments and story mentions, and never miss a lead that comes in through social engagement.",
+            "Every Instagram conversation lands in the same shared inbox as your WhatsApp and Messenger chats, so your team never has to juggle apps."
+        ],
+    },
+    {
+        "slug": "smart-crm",
+        "name": "Smart CRM",
+        "cat": "Beyond WhatsApp",
+        "tag": "Understand and segment every customer",
+        "icon": "crm",
+        "body": [
+            "A CRM built specifically for conversation-driven businesses — segment customers automatically, tag and filter contacts, and track the full customer journey from first message to repeat purchase.",
+            "Every channel feeds into the same customer profile, so your team always has full context no matter where the conversation started."
+        ],
+    },
+    {
+        "slug": "visual-bot-builder",
+        "name": "Visual Bot Builder",
+        "cat": "Beyond WhatsApp",
+        "tag": "Build chatbots with zero code",
+        "icon": "builder",
+        "body": [
+            "Design multi-step conversation flows with a drag-and-drop builder — no developers required. Start from ready-made templates or build entirely custom logic.",
+            "Deploy the same bot across WhatsApp, Messenger, and Instagram, with support for multiple languages built in."
+        ],
+    },
+    {
+        "slug": "automation-builder",
+        "name": "Automation Builder",
+        "cat": "Beyond WhatsApp",
+        "tag": "Automate workflows end-to-end",
+        "icon": "automation",
+        "body": [
+            "Go beyond simple chatbot replies with a visual workflow builder that connects triggers, conditions, and actions across your whole business — no complex code needed.",
+            "Connect to your existing tools and let entire processes run automatically once a conversation hits a certain condition."
+        ],
+    },
 ]
 
-CATS = ["Capture Leads", "Qualify Leads", "Nurture Leads", "Close Deals"]
+CATS = ["Capture Leads", "Qualify Leads", "Nurture Leads", "Close Deals", "Beyond WhatsApp"]
 
 def head(title, desc, depth=""):
     return f"""<!DOCTYPE html>
@@ -268,11 +328,13 @@ def build_home():
 </section>
 
 <section class="trust-row reveal">
-  <p>Trusted by growing businesses</p>
+  <p>Powered by a platform trusted by 50,000+ businesses worldwide</p>
   <div class="trust-badges">
-    <span class="trust-badge">Meta Business Partner</span>
-    <span class="trust-badge">Data Encrypted</span>
+    <span class="trust-badge">Official Meta Business Partner</span>
     <span class="trust-badge">99.9% Uptime</span>
+    <span class="trust-badge">SOC 2 Type II</span>
+    <span class="trust-badge">GDPR Compliant</span>
+    <span class="trust-badge">End-to-End Encrypted</span>
   </div>
 </section>
 
