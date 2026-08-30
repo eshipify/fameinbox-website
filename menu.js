@@ -1,3 +1,15 @@
+// Mobile hamburger menu
+document.addEventListener('DOMContentLoaded', function () {
+  var toggle = document.getElementById('navToggle');
+  var nav = document.getElementById('primaryNav');
+  if (!toggle || !nav) return;
+  toggle.addEventListener('click', function () {
+    var isOpen = nav.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+});
+
 document.addEventListener('DOMContentLoaded', function () {
   var li = document.getElementById('featuresLi');
   var btn = document.getElementById('featuresBtn');

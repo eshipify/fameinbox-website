@@ -221,7 +221,10 @@ def header(depth=""):
     return f"""<header>
   <div class="nav-wrap">
     <a href="{depth}index.html" class="logo">FAME <span>INBOX</span></a>
-    <nav class="primary">
+    <button class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="primary" id="primaryNav">
       <ul>
         <li><a href="{depth}index.html">Home</a></li>
         <li class="has-mega" id="featuresLi">
@@ -230,6 +233,8 @@ def header(depth=""):
           </div>
         </li>
         <li><a href="{depth}features/index.html">All Features</a></li>
+        <li><a href="{depth}solutions.html">Solutions</a></li>
+        <li><a href="{depth}integrations.html">Integrations</a></li>
         <li><a href="{depth}pricing.html">Pricing</a></li>
         <li><a href="{depth}partners.html">Partner Program</a></li>
         <li><a href="{depth}about.html">About Us</a></li>
@@ -621,10 +626,105 @@ def build_partners():
     with open(os.path.join(ROOT, "partners.html"), "w") as f:
         f.write(html)
 
+SOLUTIONS = [
+    ("Ecommerce & Retail", "Turn browsers into buyers on WhatsApp",
+     "Recover abandoned carts, send order and delivery updates, and let customers complete purchases with in-chat payments — without ever leaving the conversation.",
+     "crm"),
+    ("Real Estate", "Qualify property leads before your team calls",
+     "Let a chatbot ask budget, location, and timeline questions upfront, share listings and brochures instantly, and route serious buyers straight to your agents.",
+     "form"),
+    ("Education & Coaching", "Never lose a student inquiry to a missed call",
+     "Answer course questions instantly, collect enrollment details through WhatsApp forms, and send automated reminders for classes, fees, and deadlines.",
+     "bot"),
+    ("Healthcare & Clinics", "Simplify appointments and patient follow-ups",
+     "Let patients book and reschedule appointments via chat, send automated reminders to cut no-shows, and keep every patient conversation in one place.",
+     "sequence"),
+    ("Restaurants & Cloud Kitchens", "Take orders and manage feedback on WhatsApp",
+     "Share your menu, take orders through a chatbot, send order-ready notifications, and follow up for reviews — all inside the same conversation.",
+     "broadcast"),
+]
+
+def build_solutions():
+    html = head("Solutions — Fame Inbox", "Fame Inbox solutions by industry: ecommerce, real estate, education, healthcare, and restaurants.")
+    html += header()
+    html += """
+<section class="page-hero">
+  <span class="eyebrow">Solutions</span>
+  <h1>Built for <span class="accent">how your industry sells</span></h1>
+  <p class="sub">The same platform, tuned to how conversations actually happen in your business.</p>
+</section>
+<div class="detail-body">
+"""
+    for name, headline, desc, icon in SOLUTIONS:
+        html += f"""
+  <div class="detail-illustration" style="margin-bottom:14px;">
+    <svg viewBox="0 0 24 24" style="width:48px;height:48px;">{ICONS[icon].replace('stroke="white"', 'stroke="#6E1E42"')}</svg>
+  </div>
+  <div class="detail-section" style="margin-bottom:40px;">
+    <h2 style="margin-top:0;">{name}</h2>
+    <p style="font-weight:700;color:var(--ink);margin-bottom:6px;">{headline}</p>
+    <p>{desc}</p>
+  </div>
+"""
+    html += """
+  <div class="detail-cta">
+    <h3>Don't see your industry?</h3>
+    <p>Fame Inbox adapts to almost any conversation-driven business. Let's talk about yours.</p>
+    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
+  </div>
+</div>
+"""
+    html += footer()
+    with open(os.path.join(ROOT, "solutions.html"), "w") as f:
+        f.write(html)
+
+INTEGRATIONS = [
+    ("Ecommerce", "Shopify, WooCommerce — sync orders, products, and customers automatically"),
+    ("Payments", "Razorpay, Stripe and other gateways for in-chat payment collection"),
+    ("Calendars", "Google Calendar and Outlook for automated appointment scheduling"),
+    ("Spreadsheets", "Google Sheets for simple data sync without extra tools"),
+    ("Automation platforms", "Connect to Zapier/Make-style tools and 1,000+ other apps via API and webhooks"),
+    ("CRM & Helpdesk", "Sync contacts and conversations with your existing CRM or support tools"),
+]
+
+def build_integrations():
+    html = head("Integrations — Fame Inbox", "Fame Inbox integrates with your ecommerce, payments, calendar, and automation tools.")
+    html += header()
+    html += """
+<section class="page-hero">
+  <span class="eyebrow">Integrations</span>
+  <h1>Connects with <span class="accent">the tools you already use</span></h1>
+  <p class="sub">REST APIs, webhooks, and ready-made connections so Fame Inbox fits into your existing stack, not the other way around.</p>
+</section>
+<div class="hub-grid">
+"""
+    for name, desc in INTEGRATIONS:
+        html += f"""
+<div class="hub-card">
+  <div class="icon">{ICONS['automation']}</div>
+  <h4>{name}</h4>
+  <p>{desc}</p>
+</div>"""
+    html += """
+</div>
+<div class="detail-body">
+  <div class="detail-cta">
+    <h3>Need a custom integration?</h3>
+    <p>Our open REST APIs and webhooks mean most custom workflows are possible — ask us during your demo.</p>
+    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
+  </div>
+</div>
+"""
+    html += footer()
+    with open(os.path.join(ROOT, "integrations.html"), "w") as f:
+        f.write(html)
+
 build_home()
 build_hub()
 build_pricing()
 build_partners()
+build_solutions()
+build_integrations()
 for feat in FEATURES:
     build_feature(feat)
 build_about()
