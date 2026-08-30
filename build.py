@@ -388,9 +388,37 @@ def build_hub():
         f.write(html)
 
 # ---------- Feature detail pages ----------
+WHO_MAP = {
+    "click-to-whatsapp-ads": "Businesses running Meta ad campaigns who want ad clicks to convert into conversations, not just landing page visits.",
+    "qr-to-whatsapp": "Retail stores, restaurants, and event booths that want an easy offline-to-chat path for walk-in customers.",
+    "link-to-whatsapp": "Anyone with an email signature, social bio, or SMS campaign who wants a single tap to start a chat.",
+    "web-widget-to-whatsapp": "Websites that want visitors to reach a real conversation instead of filling out a generic contact form.",
+    "whatsapp-chatbots": "Teams getting a high volume of repetitive questions who want leads pre-qualified before a human joins in.",
+    "whatsapp-forms": "Businesses that need structured details (orders, bookings, preferences) without sending customers to an external form.",
+    "whatsapp-broadcasts": "Businesses with an existing customer list who want to announce offers, restocks, or updates in one send.",
+    "whatsapp-sequences": "Sales teams tired of manually remembering to follow up — this automates the nudge.",
+    "whatsapp-team-inbox": "Any team of 2+ people sharing one WhatsApp number who need to avoid double-replies and missed chats.",
+    "whatsapp-payments": "Businesses that want to close the sale in the same conversation instead of redirecting to a separate checkout.",
+    "facebook-messenger": "Businesses already active on Facebook who want the same automation they use on WhatsApp.",
+    "instagram-automation": "Brands running Instagram content and ads who don't want DMs and comments falling through the cracks.",
+    "smart-crm": "Growing teams that have outgrown spreadsheets and need real customer segmentation and history.",
+    "visual-bot-builder": "Non-technical teams who want to build and adjust chatbot flows themselves, without waiting on developers.",
+    "automation-builder": "Operations-minded teams who want conversations to trigger real business workflows automatically.",
+}
+
 def build_feature(feat):
     icon_svg = ICONS[feat["icon"]].replace('stroke="white"', 'stroke="#6E1E42"')
     body_html = "".join(f"<p>{p}</p>" for p in feat["body"])
+    who = WHO_MAP.get(feat["slug"], "")
+    related = [f for f in FEATURES if f["cat"] == feat["cat"] and f["slug"] != feat["slug"]][:3]
+    if len(related) < 3:
+        related += [f for f in FEATURES if f["cat"] != feat["cat"] and f["slug"] != feat["slug"]][:3 - len(related)]
+    related_html = "".join(f"""
+<a class="hub-card" href="{r['slug']}.html">
+  <div class="icon">{ICONS[r['icon']]}</div>
+  <h4>{r['name']}</h4>
+  <p>{r['tag']}</p>
+</a>""" for r in related)
     html = head(f"{feat['name']} — Fame Inbox", feat["tag"], depth="../")
     html += header(depth="../")
     html += f"""
@@ -405,11 +433,21 @@ def build_feature(feat):
   </div>
   <div class="detail-section">
     {body_html}
+    <p style="background:#F3E3EC;border-radius:10px;padding:16px 20px;font-size:14px;color:var(--wine);margin-top:24px;"><strong>Who it's for:</strong> {who}</p>
   </div>
   <div class="detail-cta">
     <h3>See {feat['name']} in action</h3>
     <p>Book a short demo and we'll walk you through it live.</p>
     <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
+  </div>
+</div>
+<div class="strip">
+  <div class="strip-head">
+    <span class="eyebrow">Explore more</span>
+    <h2>Related features</h2>
+  </div>
+  <div class="hub-grid" style="padding:0;">
+    {related_html}
   </div>
 </div>
 """
@@ -427,12 +465,46 @@ def build_about():
   <h1>Built for businesses<br><span class="accent">that live in the chat</span></h1>
   <p class="sub">Fame Inbox gives growing businesses one shared WhatsApp workspace to capture, qualify, nurture and close every conversation.</p>
 </section>
+
+<div class="hub-grid">
+  <p class="hub-cat">What Fame Inbox Is Built On</p>
+  <div class="hub-card">
+    <div class="icon">""" + ICONS["ad"] + """</div>
+    <h4>Official Meta Business Partner</h4>
+    <p>Built on the official WhatsApp Business API, not an unofficial workaround.</p>
+  </div>
+  <div class="hub-card">
+    <div class="icon">""" + ICONS["inbox"] + """</div>
+    <h4>99.9% Uptime</h4>
+    <p>Global infrastructure built to stay reliable at scale.</p>
+  </div>
+  <div class="hub-card">
+    <div class="icon">""" + ICONS["form"] + """</div>
+    <h4>SOC 2 &amp; GDPR</h4>
+    <p>Bank-grade security and compliance standards behind every conversation.</p>
+  </div>
+  <div class="hub-card">
+    <div class="icon">""" + ICONS["bot"] + """</div>
+    <h4>End-to-End Encrypted</h4>
+    <p>Your customer conversations stay protected in transit and at rest.</p>
+  </div>
+</div>
+
 <div class="detail-body">
   <div class="detail-section">
     <h2>Why we built this</h2>
     <p>Most customers today would rather message a business than fill out a form or wait on hold. Fame Inbox exists so your team can meet them there — with automation that qualifies leads instantly and a shared inbox that keeps every conversation organized.</p>
     <h2>What we stand for</h2>
     <p>Fast responses, clear ownership of every conversation, and tools your team can actually set up without an engineer. That's the whole product philosophy.</p>
+    <h2>Who we work with</h2>
+    <p>From single-founder shops running their first WhatsApp campaign to growing teams managing thousands of conversations a month — plus agencies reselling the platform to their own clients through our <a href="partners.html">Partner Program</a>.</p>
+    <h2>How we're different</h2>
+    <p>Most tools give you WhatsApp automation and stop there. Fame Inbox connects WhatsApp, Facebook Messenger, and Instagram into one inbox, backed by a real CRM — so your team isn't juggling five different apps to talk to the same customer.</p>
+  </div>
+  <div class="detail-cta">
+    <h3>See it for yourself</h3>
+    <p>Book a demo and we'll walk you through the whole platform, live.</p>
+    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
   </div>
 </div>
 """
