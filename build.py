@@ -190,7 +190,10 @@ FEATURES = [
 
 CATS = ["Capture Leads", "Qualify Leads", "Nurture Leads", "Close Deals", "Beyond WhatsApp"]
 
-def head(title, desc, depth=""):
+BASE_URL = "https://fameinbox.com"
+
+def head(title, desc, depth="", path=""):
+    canonical = f"{BASE_URL}/{path}"
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -198,7 +201,31 @@ def head(title, desc, depth=""):
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title}</title>
 <meta name="description" content="{desc}">
+<link rel="canonical" href="{canonical}">
+<link rel="icon" type="image/svg+xml" href="{depth}favicon.svg">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{desc}">
+<meta property="og:url" content="{canonical}">
+<meta property="og:site_name" content="Fame Inbox">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{desc}">
+
 <link rel="stylesheet" href="{depth}style.css">
+
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Fame Inbox",
+  "url": "{BASE_URL}",
+  "description": "WhatsApp business messaging platform for capturing, qualifying, nurturing and closing leads in one shared inbox.",
+  "sameAs": ["https://wa.me/918939888107"]
+}}
+</script>
 </head>
 <body>
 """
@@ -297,7 +324,7 @@ def build_home():
     </div>""" for i, (key, label, title, desc, icon) in enumerate(journey_data))
 
     html = head("Fame Inbox — Where conversations become customers",
-                "WhatsApp business messaging platform: capture, qualify, nurture and close leads in one shared inbox.")
+                "WhatsApp business messaging platform: capture, qualify, nurture and close leads in one shared inbox.", path="")
     html += header()
     html += f"""
 <section class="page-hero">
@@ -363,7 +390,7 @@ def build_home():
 
 # ---------- Features hub ----------
 def build_hub():
-    html = head("All Features — Fame Inbox", "Every Fame Inbox feature for capturing, qualifying, nurturing and closing leads on WhatsApp.", depth="../")
+    html = head("All Features — Fame Inbox", "Every Fame Inbox feature for capturing, qualifying, nurturing and closing leads on WhatsApp.", depth="../", path="features/index.html")
     html += header(depth="../")
     html += """
 <section class="page-hero">
@@ -419,7 +446,7 @@ def build_feature(feat):
   <h4>{r['name']}</h4>
   <p>{r['tag']}</p>
 </a>""" for r in related)
-    html = head(f"{feat['name']} — Fame Inbox", feat["tag"], depth="../")
+    html = head(f"{feat['name']} — Fame Inbox", feat["tag"], depth="../", path=f"features/{feat['slug']}.html")
     html += header(depth="../")
     html += f"""
 <section class="page-hero">
@@ -457,7 +484,7 @@ def build_feature(feat):
 
 # ---------- About / Contact ----------
 def build_about():
-    html = head("About Us — Fame Inbox", "Fame Inbox helps businesses turn WhatsApp conversations into customers.")
+    html = head("About Us — Fame Inbox", "Fame Inbox helps businesses turn WhatsApp conversations into customers.", path="about.html")
     html += header()
     html += """
 <section class="page-hero">
@@ -513,7 +540,7 @@ def build_about():
         f.write(html)
 
 def build_contact():
-    html = head("Contact — Fame Inbox", "Get in touch with Fame Inbox or book a demo.")
+    html = head("Contact — Fame Inbox", "Get in touch with Fame Inbox or book a demo.", path="contact.html")
     html += header()
     html += """
 <section class="page-hero">
@@ -555,7 +582,7 @@ document.getElementById('waContactForm').addEventListener('submit', function (e)
         f.write(html)
 
 def build_pricing():
-    html = head("Pricing — Fame Inbox", "Fame Inbox pricing plans.")
+    html = head("Pricing — Fame Inbox", "Fame Inbox pricing plans.", path="pricing.html")
     html += header()
     html += """
 <section class="page-hero">
@@ -643,7 +670,7 @@ def build_pricing():
         f.write(html)
 
 def build_partners():
-    html = head("Partner Program — Fame Inbox", "Become a Fame Inbox reseller partner and launch your own branded communication platform.")
+    html = head("Partner Program — Fame Inbox", "Become a Fame Inbox reseller partner and launch your own branded communication platform.", path="partners.html")
     html += header()
     html += """
 <section class="page-hero">
@@ -717,7 +744,7 @@ SOLUTIONS = [
 ]
 
 def build_solutions():
-    html = head("Solutions — Fame Inbox", "Fame Inbox solutions by industry: ecommerce, real estate, education, healthcare, and restaurants.")
+    html = head("Solutions — Fame Inbox", "Fame Inbox solutions by industry: ecommerce, real estate, education, healthcare, and restaurants.", path="solutions.html")
     html += header()
     html += """
 <section class="page-hero">
@@ -760,7 +787,7 @@ INTEGRATIONS = [
 ]
 
 def build_integrations():
-    html = head("Integrations — Fame Inbox", "Fame Inbox integrates with your ecommerce, payments, calendar, and automation tools.")
+    html = head("Integrations — Fame Inbox", "Fame Inbox integrates with your ecommerce, payments, calendar, and automation tools.", path="integrations.html")
     html += header()
     html += """
 <section class="page-hero">
@@ -801,4 +828,21 @@ for feat in FEATURES:
     build_feature(feat)
 build_about()
 build_contact()
+
+def build_sitemap():
+    pages = ["", "features/index.html", "pricing.html", "partners.html", "solutions.html",
+             "integrations.html", "about.html", "contact.html"]
+    pages += [f"features/{f['slug']}.html" for f in FEATURES]
+    urls = "".join(f"""  <url>
+    <loc>{BASE_URL}/{p}</loc>
+  </url>
+""" for p in pages)
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{urls}</urlset>
+"""
+    with open(os.path.join(ROOT, "sitemap.xml"), "w") as f:
+        f.write(xml)
+
+build_sitemap()
 print("Build complete.")
