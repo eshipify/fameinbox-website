@@ -161,7 +161,7 @@ footer a{text-decoration:underline;}
 .reveal.visible{opacity:1;transform:translateY(0);}
 
 /* Pricing */
-.pricing-grid{max-width:1100px;margin:0 auto;padding:0 28px 100px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.pricing-grid{max-width:1300px;margin:0 auto;padding:0 28px 100px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
 .price-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:34px 28px;display:flex;flex-direction:column;}
 .price-card.featured{border-color:var(--green);box-shadow:0 20px 40px rgba(20,167,108,.15);position:relative;}
 .price-card.featured::before{content:"Most Popular";position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;font-size:11px;font-weight:700;padding:4px 14px;border-radius:999px;}
@@ -173,9 +173,12 @@ footer a{text-decoration:underline;}
 .price-card li:first-child{border-top:none;}
 .price-card .btn-primary, .price-card .btn-secondary{text-align:center;}
 
+@media (max-width:1000px){
+  .pricing-grid{grid-template-columns:1fr 1fr;}
+}
 @media (max-width:880px){
   .journey-panel.active{grid-template-columns:1fr;}
-  .testi-grid, .pricing-grid{grid-template-columns:1fr;}
+  .testi-grid{grid-template-columns:1fr;}
 }
 @media (max-width:520px){
   .strip-grid, .hub-grid{grid-template-columns:1fr;}
