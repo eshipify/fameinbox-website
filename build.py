@@ -170,6 +170,7 @@ def header(depth=""):
           </div>
         </li>
         <li><a href="{depth}features/index.html">All Features</a></li>
+        <li><a href="{depth}pricing.html">Pricing</a></li>
         <li><a href="{depth}about.html">About Us</a></li>
         <li><a href="{depth}contact.html">Contact</a></li>
       </ul>
@@ -197,6 +198,34 @@ def build_home():
             items += f"""<div class="item"><div class="dot"></div><div><h4>{f['name']}</h4><p>{f['tag']}</p></div></div>"""
         strip_cards += f"""<div class="strip-card"><p class="cat">{c.split()[0]}</p>{items}</div>"""
 
+    journey_data = [
+        ("capture", "Capture", "Every inquiry captured in real time",
+         "Leads from Click-to-WhatsApp ads, QR codes, links, or your website chat widget land in a live conversation instantly — no forms, no redirects, no waiting.",
+         ICONS["ad"]),
+        ("qualify", "Qualify", "Sales-ready before your team steps in",
+         "Your chatbot asks the right questions and scores intent automatically, so your team inherits context instead of a cold lead.",
+         ICONS["bot"]),
+        ("nurture", "Nurture", "Most deals die from silence, not rejection",
+         "Automated sequences and broadcasts follow up the moment a lead goes quiet — fully configurable, fully automatic.",
+         ICONS["sequence"]),
+        ("close", "Close", "From intent to commitment, no friction",
+         "Your shared team inbox and in-chat payments mean a ready buyer can be closed without ever leaving the conversation.",
+         ICONS["payments"]),
+    ]
+    tabs_html = "".join(
+        f'<button class="journey-tab{" active" if i==0 else ""}" data-target="panel-{key}">{label}</button>'
+        for i, (key, label, _, _, _) in enumerate(journey_data)
+    )
+    panels_html = "".join(f"""
+    <div class="journey-panel{' active' if i==0 else ''}" id="panel-{key}">
+      <div>
+        <h3>{title}</h3>
+        <p>{desc}</p>
+        <a href="features/index.html" class="btn-secondary">See how it works</a>
+      </div>
+      <div class="journey-visual"><svg viewBox="0 0 24 24" style="stroke:#6E1E42">{icon.replace('stroke="white"','stroke="#6E1E42"')}</svg></div>
+    </div>""" for i, (key, label, title, desc, icon) in enumerate(journey_data))
+
     html = head("Fame Inbox — Where conversations become customers",
                 "WhatsApp business messaging platform: capture, qualify, nurture and close leads in one shared inbox.")
     html += header()
@@ -209,14 +238,51 @@ def build_home():
     <a href="contact.html" class="btn-primary">Book a Demo</a>
     <a href="contact.html" class="btn-secondary">Start Free Trial</a>
   </div>
+  <div class="hero-mockup">
+    <div class="hero-mockup-head"><span class="dot"></span> Fame Inbox — Live Chat</div>
+    <div class="hero-mockup-body">
+      <div class="bubble in">Hi! I saw your ad — do you deliver to Chennai?</div>
+      <div class="bubble out">Yes! Free delivery on orders over ₹999 🚚</div>
+      <div class="bubble in">Perfect, I'd like to order 2 sarees</div>
+      <div class="bubble out">Great choice — here's a payment link to complete your order ✅</div>
+    </div>
+  </div>
 </section>
-<section class="strip">
+
+<section class="journey reveal">
+  <div class="journey-tabs">{tabs_html}</div>
+  {panels_html}
+</section>
+
+<section class="strip reveal">
   <div class="strip-head">
     <span class="eyebrow">What you get</span>
     <h2>One inbox, every stage of the journey</h2>
     <p>From the first ad click to the final payment — all inside a single WhatsApp workflow.</p>
   </div>
   <div class="strip-grid">{strip_cards}</div>
+</section>
+
+<section class="trust-row reveal">
+  <p>Trusted by growing businesses</p>
+  <div class="trust-badges">
+    <span class="trust-badge">Meta Business Partner</span>
+    <span class="trust-badge">Data Encrypted</span>
+    <span class="trust-badge">99.9% Uptime</span>
+  </div>
+</section>
+
+<section class="testimonials reveal">
+  <div class="strip-head">
+    <span class="eyebrow">Customers</span>
+    <h2>What businesses are saying</h2>
+    <p>Real quotes from your customers go here once available.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card"><span class="testi-placeholder-tag">Sample — replace with a real quote</span><p class="quote">"Add a short quote from a happy customer here."</p><p class="who">Customer Name</p><p class="role">Role, Company</p></div>
+    <div class="testi-card"><span class="testi-placeholder-tag">Sample — replace with a real quote</span><p class="quote">"Add a short quote from a happy customer here."</p><p class="who">Customer Name</p><p class="role">Role, Company</p></div>
+    <div class="testi-card"><span class="testi-placeholder-tag">Sample — replace with a real quote</span><p class="quote">"Add a short quote from a happy customer here."</p><p class="who">Customer Name</p><p class="role">Role, Company</p></div>
+  </div>
 </section>
 """
     html += footer()
@@ -323,8 +389,56 @@ def build_contact():
     with open(os.path.join(ROOT, "contact.html"), "w") as f:
         f.write(html)
 
+def build_pricing():
+    html = head("Pricing — Fame Inbox", "Fame Inbox pricing plans.")
+    html += header()
+    html += """
+<section class="page-hero">
+  <span class="eyebrow">Pricing</span>
+  <h1>Plans that <span class="accent">grow with you</span></h1>
+  <p class="sub">Placeholder plans below — replace names, prices, and features with your real pricing.</p>
+</section>
+<div class="pricing-grid">
+  <div class="price-card">
+    <h3>Starter</h3>
+    <div class="price-amount">₹[Add price]<span>/mo</span></div>
+    <ul>
+      <li>[Add feature]</li>
+      <li>[Add feature]</li>
+      <li>[Add feature]</li>
+    </ul>
+    <a href="contact.html" class="btn-secondary">Start Free Trial</a>
+  </div>
+  <div class="price-card featured">
+    <h3>Growth</h3>
+    <div class="price-amount">₹[Add price]<span>/mo</span></div>
+    <ul>
+      <li>[Add feature]</li>
+      <li>[Add feature]</li>
+      <li>[Add feature]</li>
+      <li>[Add feature]</li>
+    </ul>
+    <a href="contact.html" class="btn-primary">Start Free Trial</a>
+  </div>
+  <div class="price-card">
+    <h3>Enterprise</h3>
+    <div class="price-amount">Custom</div>
+    <ul>
+      <li>[Add feature]</li>
+      <li>[Add feature]</li>
+      <li>[Add feature]</li>
+    </ul>
+    <a href="contact.html" class="btn-secondary">Contact Sales</a>
+  </div>
+</div>
+"""
+    html += footer()
+    with open(os.path.join(ROOT, "pricing.html"), "w") as f:
+        f.write(html)
+
 build_home()
 build_hub()
+build_pricing()
 for feat in FEATURES:
     build_feature(feat)
 build_about()
