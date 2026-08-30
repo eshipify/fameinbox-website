@@ -231,6 +231,7 @@ def header(depth=""):
         </li>
         <li><a href="{depth}features/index.html">All Features</a></li>
         <li><a href="{depth}pricing.html">Pricing</a></li>
+        <li><a href="{depth}partners.html">Partner Program</a></li>
         <li><a href="{depth}about.html">About Us</a></li>
         <li><a href="{depth}contact.html">Contact</a></li>
         <li><a href="https://app.fameinbox.com/">Login</a></li>
@@ -555,7 +556,7 @@ def build_pricing():
   </div>
   <div class="detail-cta">
     <h3>Running an agency?</h3>
-    <p>We also offer Sub-Agency Licensing — resell white-label panels to your own clients under your own brand. Get in touch for details and pricing.</p>
+    <p>We also offer Sub-Agency Licensing — resell white-label panels to your own clients under your own brand. See our <a href="partners.html">Partner Program</a> for details.</p>
     <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
   </div>
 </div>
@@ -564,9 +565,65 @@ def build_pricing():
     with open(os.path.join(ROOT, "pricing.html"), "w") as f:
         f.write(html)
 
+def build_partners():
+    html = head("Partner Program — Fame Inbox", "Become a Fame Inbox reseller partner and launch your own branded communication platform.")
+    html += header()
+    html += """
+<section class="page-hero">
+  <span class="eyebrow">Partner Program</span>
+  <h1>Sell Fame Inbox <span class="accent">under your own brand</span></h1>
+  <p class="sub">Already work with agency clients or run your own SMS/marketing business? Resell the full Fame Inbox platform under your own name and build a recurring revenue stream.</p>
+  <div class="hero-cta">
+    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Talk to Us About Partnering</a>
+  </div>
+</section>
+
+<div class="hub-grid">
+  <p class="hub-cat">Why Partner With Us</p>
+  <div class="hub-card">
+    <div class="icon">""" + ICONS["builder"] + """</div>
+    <h4>Your Brand, Your Way</h4>
+    <p>Onboard your own clients under your own name and identity — you own the relationship end to end.</p>
+  </div>
+  <div class="hub-card">
+    <div class="icon">""" + ICONS["automation"] + """</div>
+    <h4>No Development Needed</h4>
+    <p>The full platform is already built — WhatsApp API, bots, CRM, automation — ready to hand to your clients.</p>
+  </div>
+  <div class="hub-card">
+    <div class="icon">""" + ICONS["crm"] + """</div>
+    <h4>Recurring Revenue</h4>
+    <p>Build a subscription business on top of a platform your clients will keep using month after month.</p>
+  </div>
+  <div class="hub-card">
+    <div class="icon">""" + ICONS["inbox"] + """</div>
+    <h4>Your Own Client Workspaces</h4>
+    <p>Give each client an isolated workspace to manage their own conversations, contacts, and automations.</p>
+  </div>
+</div>
+
+<div class="detail-body">
+  <div class="detail-section">
+    <h2>Who this is for</h2>
+    <p>Digital marketing agencies, SMS/messaging companies, and consultants already serving business clients who want to add a WhatsApp/social automation offering without building it themselves.</p>
+    <h2>How it works</h2>
+    <p>You get access to the full platform under your own branding, onboard your clients into their own workspaces, and set your own retail pricing. We handle the underlying infrastructure and support.</p>
+  </div>
+  <div class="detail-cta">
+    <h3>Want the specifics?</h3>
+    <p>Pricing and partnership terms are discussed directly — book a call and we'll walk you through it.</p>
+    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
+  </div>
+</div>
+"""
+    html += footer()
+    with open(os.path.join(ROOT, "partners.html"), "w") as f:
+        f.write(html)
+
 build_home()
 build_hub()
 build_pricing()
+build_partners()
 for feat in FEATURES:
     build_feature(feat)
 build_about()
