@@ -434,14 +434,14 @@ def build_home():
       <div class="journey-visual"><svg viewBox="0 0 24 24" style="stroke:#6E1E42">{icon.replace('stroke="white"','stroke="#6E1E42"')}</svg></div>
     </div>""" for i, (key, label, title, desc, icon) in enumerate(journey_data))
 
-    html = head("Fame Inbox — Where conversations become customers",
-                "WhatsApp business messaging platform: capture, qualify, nurture and close leads in one shared inbox.", path="")
+    html = head("Fame Inbox — WhatsApp API & Automation Platform | Official Meta Partner",
+                "Capture, qualify, nurture and close leads on WhatsApp — chatbots, broadcasts, CRM and in-chat payments in one platform. Official Meta Business Partner. Start free.", path="")
     html += header()
     html += f"""
 <section class="page-hero">
   <span class="eyebrow">Trusted by growing businesses &middot; Official Meta Business Partner</span>
-  <h1>Where conversations<br>become <span class="accent">customers</span></h1>
-  <p class="sub">Capture, qualify, nurture and close every lead on the app your customers already have open — WhatsApp.</p>
+  <h1>Stop Losing Leads in Your<br><span class="accent">WhatsApp Inbox</span></h1>
+  <p class="sub">Fame Inbox captures, qualifies, nurtures and closes every WhatsApp conversation automatically — so no lead goes cold waiting on a reply.</p>
   <div class="hero-cta">
     <a href="https://zbooking.in/OEgH9" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
     <a href="https://app.fameinbox.com/register" class="btn-secondary">Start Free Trial</a>
@@ -501,7 +501,7 @@ def build_home():
 
 # ---------- Features hub ----------
 def build_hub():
-    html = head("All Features — Fame Inbox", "Every Fame Inbox feature for capturing, qualifying, nurturing and closing leads on WhatsApp.", depth="../", path="features/index.html")
+    html = head("All Features — WhatsApp Automation & CRM | Fame Inbox", "Chatbots, broadcasts, shared inbox, payments and more — every Fame Inbox feature for capturing, qualifying, and closing leads on WhatsApp.", depth="../", path="features/index.html")
     html += header(depth="../")
     html += """
 <section class="page-hero">
@@ -693,7 +693,7 @@ document.getElementById('waContactForm').addEventListener('submit', function (e)
         f.write(html)
 
 def build_pricing():
-    html = head("Pricing — Fame Inbox", "Fame Inbox pricing plans.", path="pricing.html")
+    html = head("Fame Inbox Pricing — Plans From ₹999/mo | 7-Day Free Trial", "WhatsApp API, chatbots, CRM and automation — transparent pricing plans for growing businesses. Start with a free 7-day trial, no commitment.", path="pricing.html")
     html += header()
     html += """
 <section class="page-hero">
