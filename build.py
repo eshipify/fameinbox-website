@@ -261,6 +261,7 @@ def header(depth=""):
         </li>
         <li><a href="{depth}features/index.html">All Features</a></li>
         <li><a href="{depth}solutions.html">Solutions</a></li>
+        <li><a href="{depth}resources.html">Resources</a></li>
         <li><a href="{depth}integrations.html">Integrations</a></li>
         <li><a href="{depth}pricing.html">Pricing</a></li>
         <li><a href="{depth}partners.html">Partner Program</a></li>
@@ -751,6 +752,15 @@ def build_solutions():
   <span class="eyebrow">Solutions</span>
   <h1>Built for <span class="accent">how your industry sells</span></h1>
   <p class="sub">The same platform, tuned to how conversations actually happen in your business.</p>
+  <div class="hero-mockup">
+    <div class="hero-mockup-head"><span class="dot"></span> Illustrative mockup — not a live screen recording</div>
+    <div class="hero-mockup-body">
+      <div class="bubble in">Hi, is the blue kurta set still available in size M?</div>
+      <div class="bubble out">Yes! Here's a quick payment link to secure it 👇</div>
+      <div class="bubble in">Perfect, paying now</div>
+      <div class="bubble out">Order confirmed ✅ Shipping by tomorrow</div>
+    </div>
+  </div>
 </section>
 <div class="detail-body">
 """
@@ -829,9 +839,84 @@ for feat in FEATURES:
 build_about()
 build_contact()
 
+USE_CASES = [
+    ("recover-abandoned-carts", "How to Recover Abandoned Carts with WhatsApp Broadcasts",
+     "For ecommerce sellers",
+     [
+        "A customer adds items to their cart, gets distracted, and leaves — this happens to roughly 70% of online shopping carts. Email reminders often go unread, but WhatsApp messages get opened within minutes.",
+        "<strong>Step 1: Segment abandoned-cart customers.</strong> Use Fame Inbox's Smart CRM to tag customers who added items but didn't complete checkout, based on your store's order data.",
+        "<strong>Step 2: Send a broadcast, not a generic blast.</strong> Use WhatsApp Broadcasts to send a personalized reminder — mention the specific item they left behind if your store integration supports it.",
+        "<strong>Step 3: Make it one tap to finish.</strong> Include a WhatsApp Payments link directly in the message so they can complete the purchase without leaving the chat.",
+        "<strong>Step 4: Automate the timing.</strong> Set up a WhatsApp Sequence to trigger this reminder automatically a few hours after cart abandonment, without your team lifting a finger each time.",
+     ], ["whatsapp-broadcasts", "whatsapp-payments", "whatsapp-sequences"]),
+    ("qualify-real-estate-leads", "How Real Estate Agents Qualify Leads Faster with a WhatsApp Chatbot",
+     "For real estate agents",
+     [
+        "Property inquiries often come in at odd hours, and by the time an agent calls back, the lead has already spoken to three other agents. Speed and pre-qualification both matter.",
+        "<strong>Step 1: Answer instantly, day or night.</strong> A WhatsApp Chatbot can respond the moment someone messages about a listing, sharing photos, price, and availability immediately.",
+        "<strong>Step 2: Ask qualifying questions upfront.</strong> Use WhatsApp Forms to collect budget range, preferred location, and timeline before a human ever gets involved.",
+        "<strong>Step 3: Route hot leads to the right agent.</strong> Once a lead is qualified, hand off the conversation inside your WhatsApp Team Inbox so the right agent picks it up with full context already visible.",
+     ], ["whatsapp-chatbots", "whatsapp-forms", "whatsapp-team-inbox"]),
+    ("instagram-comments-to-sales", "Turning Instagram Comments into Sales with Automated Replies",
+     "For social-first brands",
+     [
+        "When a post goes viral, comments can pile up faster than any team can reply to manually — and every unanswered \"price?\" comment is a lead going cold.",
+        "<strong>Step 1: Auto-reply to comments.</strong> Instagram Automation can detect keywords in comments (like \"price\" or \"available\") and trigger an automatic DM reply.",
+        "<strong>Step 2: Move the conversation to DM.</strong> Once someone engages, continue the conversation privately, where you can share pricing, links, and answer questions directly.",
+        "<strong>Step 3: Keep it all in one place.</strong> Every Instagram conversation lands in the same shared inbox as your WhatsApp chats, so nothing gets missed across channels.",
+     ], ["instagram-automation", "whatsapp-team-inbox"]),
+    ("followup-without-forgetting", "How to Follow Up on Leads Without Relying on Memory",
+     "For any sales team",
+     [
+        "Most lost deals aren't lost to a competitor — they're lost to a follow-up that never happened. Manual follow-up depends on someone remembering, and that doesn't scale.",
+        "<strong>Step 1: Map out your follow-up cadence.</strong> Decide when a lead should hear from you again if they go quiet — a day later, a week later, and so on.",
+        "<strong>Step 2: Build it once with WhatsApp Sequences.</strong> Set up automated follow-up messages that go out on schedule, and stop automatically the moment the lead replies.",
+        "<strong>Step 3: Let your CRM track who's where.</strong> The Smart CRM keeps every lead's stage visible, so your team always knows who's due for a human touch versus who's still in automated follow-up.",
+     ], ["whatsapp-sequences", "smart-crm"]),
+]
+
+def build_resources():
+    html = head("Resources — Fame Inbox", "Marketing use cases and how-to guides for getting more from WhatsApp and Instagram automation.", path="resources.html")
+    html += header()
+    html += """
+<section class="page-hero">
+  <span class="eyebrow">Resources</span>
+  <h1>Marketing use cases, <span class="accent">not just features</span></h1>
+  <p class="sub">Practical ways to actually use Fame Inbox to sell more — not just a list of what the product does.</p>
+</section>
+<div class="detail-body">
+"""
+    for slug, title, audience, paras, related_slugs in USE_CASES:
+        body = "".join(f"<p>{p}</p>" for p in paras)
+        links = "".join(
+            f'<a href="features/{s}.html" style="display:inline-block;margin:0 8px 8px 0;font-size:12.5px;background:#F3E3EC;color:var(--wine);padding:6px 12px;border-radius:999px;font-weight:600;">{next(f["name"] for f in FEATURES if f["slug"]==s)}</a>'
+            for s in related_slugs
+        )
+        html += f"""
+  <div class="detail-section" style="margin-bottom:50px;padding-bottom:44px;border-bottom:1px solid var(--line);">
+    <span class="eyebrow">{audience}</span>
+    <h2 style="font-size:24px;margin:14px 0 16px;">{title}</h2>
+    {body}
+    <div style="margin-top:18px;">{links}</div>
+  </div>
+"""
+    html += """
+  <div class="detail-cta">
+    <h3>Want help setting one of these up?</h3>
+    <p>Book a demo and we'll walk through building your specific use case live.</p>
+    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
+  </div>
+</div>
+"""
+    html += footer()
+    with open(os.path.join(ROOT, "resources.html"), "w") as f:
+        f.write(html)
+
+build_resources()
+
 def build_sitemap():
     pages = ["", "features/index.html", "pricing.html", "partners.html", "solutions.html",
-             "integrations.html", "about.html", "contact.html"]
+             "integrations.html", "resources.html", "about.html", "contact.html"]
     pages += [f"features/{f['slug']}.html" for f in FEATURES]
     urls = "".join(f"""  <url>
     <loc>{BASE_URL}/{p}</loc>
