@@ -296,7 +296,7 @@ def build_product(p):
   <div class="detail-cta">
     <h3>See {p['name']} in action</h3>
     <p>Book a short demo and we'll walk you through it live.</p>
-    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
+    <a href="https://zbooking.in/OEgH9" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
   </div>
 </div>
 """
@@ -363,7 +363,7 @@ def header(depth=""):
       </ul>
       <div class="cta-group">
         <a href="https://wa.me/918939888107?text=Hi%2C%20I%27d%20like%20to%20start%20my%20free%207-day%20Fame%20Inbox%20trial" class="cta-header" target="_blank" rel="noopener">Start for FREE &#8594;</a>
-        <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="cta-header-outline" target="_blank" rel="noopener">Book a Demo &#8594;</a>
+        <a href="https://zbooking.in/OEgH9" class="cta-header-outline" target="_blank" rel="noopener">Book a Demo &#8594;</a>
       </div>
     </nav>
   </div>
@@ -383,6 +383,16 @@ def footer(depth=""):
   &copy; 2026 <span>Fame Inbox</span>. All rights reserved.
 </footer>
 <script src="{depth}menu.js"></script>
+<script src="https://bookings.nimbuspop.com/assets/embed.js"></script>
+<script>
+  Bookings.buttonModal({{
+    url: "https://getamohan.zohobookings.in/portal-embed#/fameinbox",
+    text: "Book now",
+    color: "#5646A5",
+    textColor: "#ffffff",
+    position: "bottom-left"
+  }});
+</script>
 </body>
 </html>
 """
@@ -433,7 +443,7 @@ def build_home():
   <h1>Where conversations<br>become <span class="accent">customers</span></h1>
   <p class="sub">Capture, qualify, nurture and close every lead on the app your customers already have open — WhatsApp.</p>
   <div class="hero-cta">
-    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
+    <a href="https://zbooking.in/OEgH9" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
     <a href="contact.html" class="btn-secondary">Start Free Trial</a>
   </div>
   <div class="hero-mockup">
@@ -566,7 +576,7 @@ def build_feature(feat):
   <div class="detail-cta">
     <h3>See {feat['name']} in action</h3>
     <p>Book a short demo and we'll walk you through it live.</p>
-    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
+    <a href="https://zbooking.in/OEgH9" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
   </div>
 </div>
 <div class="strip">
@@ -632,7 +642,7 @@ def build_about():
   <div class="detail-cta">
     <h3>See it for yourself</h3>
     <p>Book a demo and we'll walk you through the whole platform, live.</p>
-    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
+    <a href="https://zbooking.in/OEgH9" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
   </div>
 </div>
 """
@@ -664,7 +674,7 @@ def build_contact():
   <div class="detail-cta">
     <h3>Prefer to talk it through?</h3>
     <p>Book a demo and we'll walk you through the full platform live.</p>
-    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
+    <a href="https://zbooking.in/OEgH9" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
   </div>
 </div>
 <script>
@@ -700,7 +710,7 @@ def build_pricing():
       <li>WhatsApp + Instagram</li>
       <li>7-day trial of core features before you commit</li>
     </ul>
-    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-secondary" target="_blank" rel="noopener">Start Free Trial</a>
+    <a href="https://zbooking.in/OEgH9" class="btn-secondary" target="_blank" rel="noopener">Start Free Trial</a>
   </div>
 
   <div class="price-card">
@@ -718,7 +728,7 @@ def build_pricing():
       <li>WhatsApp native Forms / Mini Apps</li>
       <li>Collect payments via WhatsApp native payments</li>
     </ul>
-    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
+    <a href="https://zbooking.in/OEgH9" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
   </div>
 
   <div class="price-card">
@@ -731,7 +741,7 @@ def build_pricing():
       <li>Comment automation for Posts, Reels & Live</li>
       <li>Drip journeys within 24 hours of last DM</li>
     </ul>
-    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-secondary" target="_blank" rel="noopener">Book a Demo</a>
+    <a href="https://zbooking.in/OEgH9" class="btn-secondary" target="_blank" rel="noopener">Book a Demo</a>
   </div>
 
   <div class="price-card featured">
@@ -747,7 +757,7 @@ def build_pricing():
       <li>Shared inbox for checking & replying to messages</li>
       <li>Connect external integrations via APIs/webhooks</li>
     </ul>
-    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
+    <a href="https://zbooking.in/OEgH9" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
   </div>
 
 </div>
@@ -762,7 +772,7 @@ def build_pricing():
   <div class="detail-cta">
     <h3>Running an agency?</h3>
     <p>We also offer Sub-Agency Licensing — resell white-label panels to your own clients under your own brand. See our <a href="partners.html">Partner Program</a> for details.</p>
-    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
+    <a href="https://zbooking.in/OEgH9" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
   </div>
 </div>
 """
@@ -780,7 +790,7 @@ def build_partners():
   <p class="sub">Already work with agency clients or run your own SMS/marketing business? Resell the full Fame Inbox platform under your own name and build a recurring revenue stream.</p>
   <div class="hero-cta">
     <a href="https://wa.me/918939888107?text=Hi%2C%20I%27m%20interested%20in%20the%20Fame%20Inbox%20Partner%20Program%20%2F%20reselling%20opportunity.%20Can%20you%20share%20more%20details%3F" class="btn-primary" target="_blank" rel="noopener">Chat on WhatsApp About Partnering</a>
-    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-secondary" target="_blank" rel="noopener">Book a Demo</a>
+    <a href="https://zbooking.in/OEgH9" class="btn-secondary" target="_blank" rel="noopener">Book a Demo</a>
   </div>
 </section>
 
@@ -879,7 +889,7 @@ def build_solutions():
   <div class="detail-cta">
     <h3>Don't see your industry?</h3>
     <p>Fame Inbox adapts to almost any conversation-driven business. Let's talk about yours.</p>
-    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
+    <a href="https://zbooking.in/OEgH9" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
   </div>
 </div>
 """
@@ -920,7 +930,7 @@ def build_integrations():
   <div class="detail-cta">
     <h3>Need a custom integration?</h3>
     <p>Our open REST APIs and webhooks mean most custom workflows are possible — ask us during your demo.</p>
-    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
+    <a href="https://zbooking.in/OEgH9" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
   </div>
 </div>
 """
@@ -1006,7 +1016,7 @@ def build_resources():
   <div class="detail-cta">
     <h3>Want help setting one of these up?</h3>
     <p>Book a demo and we'll walk through building your specific use case live.</p>
-    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
+    <a href="https://zbooking.in/OEgH9" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
   </div>
 </div>
 """
