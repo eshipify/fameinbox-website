@@ -546,17 +546,25 @@ def build_hub():
   <p class="sub">From the first ad click to the final payment confirmation — browse every tool below.</p>
 </section>
 
-<div class="detail-body" style="max-width:1000px;">
+<div class="detail-body" style="max-width:1050px;">
   <div class="dash-preview">
     <div class="dash-sidebar">
-      <div class="dash-sidebar-dot"></div>
-      <span class="dash-nav-item active" title="Dashboard"><span class="dash-nav-icon"></span></span>
-      <span class="dash-nav-item" title="Channels"><span class="dash-nav-icon"></span></span>
-      <span class="dash-nav-item" title="CRM"><span class="dash-nav-icon"></span></span>
-      <span class="dash-nav-item" title="Chatbots"><span class="dash-nav-icon"></span></span>
-      <span class="dash-nav-item" title="Automations"><span class="dash-nav-icon"></span></span>
-      <span class="dash-nav-item" title="WhatsApp Mini-Apps"><span class="dash-nav-icon"></span></span>
-      <span class="dash-nav-item" title="Lead Source"><span class="dash-nav-icon"></span></span>
+      <div class="dash-sidebar-logo">YOUR LOGO</div>
+      <p class="dash-menu-label">Menu</p>
+      <span class="dash-nav-item active">Dashboard</span>
+      <span class="dash-nav-item expanded">Channels</span>
+      <span class="dash-nav-sub">All Channels</span>
+      <span class="dash-nav-sub">WhatsApp</span>
+      <span class="dash-nav-sub">Instagram</span>
+      <span class="dash-nav-sub">Facebook</span>
+      <span class="dash-nav-sub">RCS</span>
+      <span class="dash-nav-item">CRM</span>
+      <span class="dash-nav-item">Chatbots</span>
+      <span class="dash-nav-item">Automations</span>
+      <span class="dash-nav-item">WhatsApp Mini-Apps</span>
+      <span class="dash-nav-item">Lead Source</span>
+      <p class="dash-menu-label">Workspace &amp; Settings</p>
+      <span class="dash-nav-item">Workspace</span>
     </div>
     <div class="dash-list">
       <div class="dash-list-head">Chats</div>
@@ -676,6 +684,29 @@ def build_feature(feat):
   <h4>{r['name']}</h4>
   <p>{r['tag']}</p>
 </a>""" for r in related)
+    workflow_mockup = ""
+    if feat["slug"] == "automation-builder":
+        rows = [
+            ("on", "Cart Recovery Flow", "27 Aug, 2026"),
+            ("on", "Lead Qualification Bot", "24 Aug, 2026"),
+            ("off", "Order Follow-up", "20 Aug, 2026"),
+            ("off", "Untitled", "18 Aug, 2026"),
+        ]
+        rows_html = "".join(f"""
+        <div class="wf-row">
+          <span class="wf-toggle {'on' if s=='on' else ''}"></span>
+          <span class="wf-title">{t}</span>
+          <span class="wf-date">{d}</span>
+          <span class="wf-action">&#8942;</span>
+        </div>""" for s, t, d in rows)
+        workflow_mockup = f"""
+  <div class="wf-mockup">
+    <div class="wf-head"><span>Workflow</span><span class="wf-create">+ Create Workflow</span></div>
+    <div class="wf-cols"><span>Status</span><span>Title</span><span>Created On</span><span></span></div>
+    {rows_html}
+  </div>
+  <p class="product-shot-caption">Illustrative preview of the Automation Builder workflow list — sample workflows shown.</p>
+"""
     html = head(f"{feat['name']} — Fame Inbox", feat["tag"], depth="../", path=f"features/{feat['slug']}.html")
     html += header(depth="../")
     html += f"""
@@ -688,6 +719,7 @@ def build_feature(feat):
   <div class="detail-illustration">
     <svg viewBox="0 0 24 24" style="width:64px;height:64px;">{icon_svg}</svg>
   </div>
+  {workflow_mockup}
   <div class="detail-section">
     {body_html}
     <p style="background:#E6F7EF;border-radius:10px;padding:16px 20px;font-size:14px;color:var(--green-dark);margin-top:24px;"><strong>Who it's for:</strong> {who}</p>
