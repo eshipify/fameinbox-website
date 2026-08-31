@@ -26,6 +26,11 @@ ICONS = {
     "folder": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>',
     "radio": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="2"/><path d="M8.5 8.5a5 5 0 000 7M15.5 15.5a5 5 0 000-7M5.5 5.5a9 9 0 000 13M18.5 18.5a9 9 0 000-13"/></svg>',
     "grid": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>',
+    "plane": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M17.8 19.2L16 11l3.5-3.5c.83-.83.83-2.17 0-3-.83-.83-2.17-.83-3 0L13 8l-8.2-1.8L3 8l6.5 4.5L7 15l-3 .5.5 2 2 .5.5 2 2-3 2.5-2.5L16 21z"/></svg>',
+    "shield-dollar": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M12 8v8M14.5 10a2.5 2.5 0 00-2.5-1 2 2 0 000 4 2 2 0 010 4 2.5 2.5 0 01-2.5-1"/></svg>',
+    "truck": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="1" y="7" width="13" height="10"/><path d="M14 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg>',
+    "briefcase": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M2 13h20"/></svg>',
+    "car": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 13l2-6h14l2 6v5H3z"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/></svg>',
 }
 
 FEATURES = [
@@ -389,6 +394,11 @@ def footer(depth=""):
       <a href="{depth}solutions.html#education-coaching">Education &amp; Coaching</a>
       <a href="{depth}solutions.html#healthcare-clinics">Healthcare &amp; Clinics</a>
       <a href="{depth}solutions.html#restaurants">Restaurants</a>
+      <a href="{depth}solutions.html#travel-hospitality">Travel &amp; Hospitality</a>
+      <a href="{depth}solutions.html#finance-insurance">Finance &amp; Insurance</a>
+      <a href="{depth}solutions.html#logistics-delivery">Logistics &amp; Delivery</a>
+      <a href="{depth}solutions.html#professional-services">Professional Services</a>
+      <a href="{depth}solutions.html#automotive">Automotive</a>
     </div>
     <div class="footer-col">
       <p class="footer-col-title">Resources</p>
@@ -863,52 +873,82 @@ def build_partners():
         f.write(html)
 
 SOLUTIONS = [
-    ("ecommerce-retail", "Ecommerce & Retail", "Turn browsers into buyers on WhatsApp",
+    ("ecommerce-retail", "Ecommerce & Retail", "Turn browsers into buyers on WhatsApp", "crm",
      "Recover abandoned carts, send order and delivery updates, and let customers complete purchases with in-chat payments — without ever leaving the conversation.",
-     "crm"),
-    ("real-estate", "Real Estate", "Qualify property leads before your team calls",
+     [("Ecommerce", "ecommerce"), ("WhatsApp Payments", "whatsapp-payments"), ("WhatsApp Broadcasts", "whatsapp-broadcasts")],
+     [("in", "Hi, is the blue kurta set still available in size M?"), ("out", "Yes! Here's a quick payment link to secure it 👇"), ("in", "Perfect, paying now"), ("out", "Order confirmed ✅ Shipping by tomorrow")]),
+    ("real-estate", "Real Estate", "Qualify property leads before your team calls", "form",
      "Let a chatbot ask budget, location, and timeline questions upfront, share listings and brochures instantly, and route serious buyers straight to your agents.",
-     "form"),
-    ("education-coaching", "Education & Coaching", "Never lose a student inquiry to a missed call",
+     [("WhatsApp Chatbots", "whatsapp-chatbots"), ("Smart CRM", "smart-crm"), ("Calendar", "calendar")],
+     [("in", "Interested in the 2BHK listing in Anna Nagar"), ("out", "Great! What's your budget range and move-in timeline?"), ("in", "Around 80L, looking to move in 2 months"), ("out", "Perfect — booking you a site visit this Saturday 📅")]),
+    ("education-coaching", "Education & Coaching", "Never lose a student inquiry to a missed call", "bot",
      "Answer course questions instantly, collect enrollment details through WhatsApp forms, and send automated reminders for classes, fees, and deadlines.",
-     "bot"),
-    ("healthcare-clinics", "Healthcare & Clinics", "Simplify appointments and patient follow-ups",
+     [("WhatsApp Forms", "whatsapp-forms"), ("WhatsApp Sequences", "whatsapp-sequences"), ("Calendar", "calendar")],
+     [("in", "Does the weekend batch have seats left?"), ("out", "Yes! Here's a quick form to reserve your seat 📝"), ("in", "Done, submitted"), ("out", "Seat confirmed — class reminder sent 2 hours before start")]),
+    ("healthcare-clinics", "Healthcare & Clinics", "Simplify appointments and patient follow-ups", "sequence",
      "Let patients book and reschedule appointments via chat, send automated reminders to cut no-shows, and keep every patient conversation in one place.",
-     "sequence"),
-    ("restaurants", "Restaurants & Cloud Kitchens", "Take orders and manage feedback on WhatsApp",
+     [("Calendar", "calendar"), ("WhatsApp Sequences", "whatsapp-sequences"), ("WhatsApp Team Inbox", "whatsapp-team-inbox")],
+     [("in", "Can I reschedule my Thursday appointment?"), ("out", "Sure! Here are open slots this week 📅"), ("in", "Friday 4pm works"), ("out", "Confirmed — reminder set for Friday morning")]),
+    ("restaurants", "Restaurants & Cloud Kitchens", "Take orders and manage feedback on WhatsApp", "broadcast",
      "Share your menu, take orders through a chatbot, send order-ready notifications, and follow up for reviews — all inside the same conversation.",
-     "broadcast"),
+     [("WhatsApp Chatbots", "whatsapp-chatbots"), ("Ecommerce", "ecommerce"), ("WhatsApp Broadcasts", "whatsapp-broadcasts")],
+     [("in", "Can I see today's menu?"), ("out", "Here's today's specials 🍽️ — tap to order"), ("in", "I'll take the thali combo"), ("out", "Order confirmed — ready in 25 mins!")]),
+    ("travel-hospitality", "Travel & Hospitality", "Turn booking inquiries into confirmed stays", "plane",
+     "Handle booking questions instantly, confirm reservations with a Calendar sync, and send digital boarding-pass-style confirmations with QR Ticketing for smooth check-ins.",
+     [("Calendar", "calendar"), ("QR Ticketing", "qr-ticketing"), ("WhatsApp Broadcasts", "whatsapp-broadcasts")],
+     [("in", "Do you have rooms available this weekend?"), ("out", "Yes! Deluxe room, 2 nights — shall I confirm?"), ("in", "Yes please"), ("out", "Booked ✅ Here's your digital check-in QR pass")]),
+    ("finance-insurance", "Finance & Insurance", "Keep policyholders informed without a single missed alert", "shield-dollar",
+     "Send rich, verified statements and renewal alerts via RCS Applications, collect premium payments in-chat, and automate renewal follow-up sequences.",
+     [("RCS Applications", "rcs-applications"), ("WhatsApp Payments", "whatsapp-payments"), ("WhatsApp Sequences", "whatsapp-sequences")],
+     [("in", "When is my policy renewal due?"), ("out", "Your policy renews on the 14th — here's your premium link 💳"), ("in", "Paid, thanks"), ("out", "Renewal confirmed — see you next year!")]),
+    ("logistics-delivery", "Logistics & Delivery", "Give every customer a live view of their shipment", "truck",
+     "Send automatic shipment status broadcasts, let a chatbot answer 'where's my order' instantly, and route delivery exceptions to the right team in your shared inbox.",
+     [("WhatsApp Broadcasts", "whatsapp-broadcasts"), ("WhatsApp Chatbots", "whatsapp-chatbots"), ("WhatsApp Team Inbox", "whatsapp-team-inbox")],
+     [("in", "Where is my order #4521?"), ("out", "It's out for delivery, arriving by 6pm today 🚚"), ("in", "Great, thanks!"), ("out", "Delivered ✅ — let us know if anything's wrong")]),
+    ("professional-services", "Professional Services", "Stop chasing clients for appointments and documents", "briefcase",
+     "Let clients book consultations directly on your Calendar, collect required documents through WhatsApp Forms, and keep full client history in your Smart CRM.",
+     [("Calendar", "calendar"), ("WhatsApp Forms", "whatsapp-forms"), ("Smart CRM", "smart-crm")],
+     [("in", "I need to book a consultation"), ("out", "Sure! Here are available slots this week 📅"), ("in", "Tuesday 3pm works"), ("out", "Booked — please share these 2 documents beforehand")]),
+    ("automotive", "Automotive", "Move test drives to service reminders, automatically", "car",
+     "Book test drives on your Calendar, send rich vehicle showcases via RCS Applications, and automate service reminder Sequences so no customer falls off your radar.",
+     [("Calendar", "calendar"), ("RCS Applications", "rcs-applications"), ("WhatsApp Sequences", "whatsapp-sequences")],
+     [("in", "Can I book a test drive this weekend?"), ("out", "Absolutely — Saturday 11am work for you?"), ("in", "Yes, confirmed"), ("out", "See you then! Service reminder set for 6 months post-purchase")]),
 ]
 
 def build_solutions():
-    html = head("Solutions — Fame Inbox", "Fame Inbox solutions by industry: ecommerce, real estate, education, healthcare, and restaurants.", path="solutions.html")
+    html = head("Solutions — Fame Inbox", "Fame Inbox solutions by industry: ecommerce, real estate, education, healthcare, restaurants, travel, finance, logistics, professional services, and automotive.", path="solutions.html")
     html += header()
     html += """
 <section class="page-hero">
   <span class="eyebrow">Solutions</span>
   <h1>Built for <span class="accent">how your industry sells</span></h1>
   <p class="sub">The same platform, tuned to how conversations actually happen in your business.</p>
-  <div class="hero-mockup">
-    <div class="hero-mockup-head"><span class="dot"></span> Illustrative mockup — not a live screen recording</div>
-    <div class="hero-mockup-body">
-      <div class="bubble in">Hi, is the blue kurta set still available in size M?</div>
-      <div class="bubble out">Yes! Here's a quick payment link to secure it 👇</div>
-      <div class="bubble in">Perfect, paying now</div>
-      <div class="bubble out">Order confirmed ✅ Shipping by tomorrow</div>
-    </div>
-  </div>
 </section>
-<div class="detail-body">
+<div class="detail-body" style="max-width:960px;">
 """
-    for slug, name, headline, desc, icon in SOLUTIONS:
+    for slug, name, headline, icon, desc, products, chat in SOLUTIONS:
+        product_links = "".join(
+            f'<a href="products/{s}.html" style="display:inline-block;margin:0 8px 8px 0;font-size:12.5px;background:#E6F7EF;color:var(--green-dark);padding:6px 12px;border-radius:999px;font-weight:600;">{n}</a>'
+            if any(p["slug"] == s for p in PRODUCTS) else
+            f'<a href="features/{s}.html" style="display:inline-block;margin:0 8px 8px 0;font-size:12.5px;background:#E6F7EF;color:var(--green-dark);padding:6px 12px;border-radius:999px;font-weight:600;">{n}</a>'
+            for n, s in products
+        )
+        bubbles = "".join(f'<div class="bubble {t}">{msg}</div>' for t, msg in chat)
         html += f"""
-  <div id="{slug}" class="detail-illustration" style="margin-bottom:14px;scroll-margin-top:100px;">
-    <svg viewBox="0 0 24 24" style="width:48px;height:48px;">{ICONS[icon].replace('stroke="white"', 'stroke="#6E1E42"')}</svg>
-  </div>
-  <div class="detail-section" style="margin-bottom:40px;">
-    <h2 style="margin-top:0;">{name}</h2>
-    <p style="font-weight:700;color:var(--ink);margin-bottom:6px;">{headline}</p>
-    <p>{desc}</p>
+  <div id="{slug}" class="solution-row" style="scroll-margin-top:100px;margin-bottom:56px;padding-bottom:48px;border-bottom:1px solid var(--line);">
+    <div>
+      <div class="detail-illustration" style="width:52px;height:52px;padding:0;margin-bottom:18px;">
+        <svg viewBox="0 0 24 24" style="width:26px;height:26px;">{ICONS[icon].replace('stroke="white"', 'stroke="#14A76C"')}</svg>
+      </div>
+      <h2 style="margin-top:0;">{name}</h2>
+      <p style="font-weight:700;color:var(--ink);margin-bottom:8px;">{headline}</p>
+      <p>{desc}</p>
+      <div style="margin-top:16px;">{product_links}</div>
+    </div>
+    <div class="hero-mockup mini-mockup">
+      <div class="hero-mockup-head"><span class="dot"></span> Illustrative demo</div>
+      <div class="hero-mockup-body">{bubbles}</div>
+    </div>
   </div>
 """
     html += """

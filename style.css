@@ -179,6 +179,13 @@ footer span{color:var(--green);}
 }
 /* Hero chat mockup */
 .hero-mockup{max-width:400px;margin:52px auto 0;background:#fff;border-radius:22px;box-shadow:var(--shadow-lg);border:1px solid rgba(80,21,48,.08);overflow:hidden;transform:perspective(1000px) rotateX(2deg);}
+.solution-row{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;}
+.mini-mockup{max-width:100%;margin:0;transform:none;box-shadow:var(--shadow-md);}
+.mini-mockup .hero-mockup-body{min-height:auto;padding:14px;gap:8px;}
+.mini-mockup .bubble{font-size:12.5px;padding:8px 12px;}
+@media (max-width:880px){
+  .solution-row{grid-template-columns:1fr;}
+}
 .hero-mockup-head{background:var(--wine);color:#fff;padding:14px 18px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;}
 .hero-mockup-head .dot{width:8px;height:8px;border-radius:50%;background:var(--green);}
 .hero-mockup-body{padding:18px;background:#F1E9E4;min-height:220px;display:flex;flex-direction:column;gap:10px;}
