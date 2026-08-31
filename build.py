@@ -580,10 +580,57 @@ WHO_MAP = {
     "automation-builder": "Operations-minded teams who want conversations to trigger real business workflows automatically.",
 }
 
+STEPS_MAP = {
+    "click-to-whatsapp-ads": ["Someone sees your Meta or Google ad", "They tap the ad's call-to-action button", "WhatsApp opens instantly with a live chat, ready for your bot or team"],
+    "qr-to-whatsapp": ["You place your QR code in-store, on packaging, or in print", "A customer scans it with their phone camera", "WhatsApp opens instantly with your pre-filled greeting"],
+    "link-to-whatsapp": ["You share your chat link anywhere — bio, email signature, SMS", "Customer taps the link", "A conversation opens immediately, no number to save"],
+    "web-widget-to-whatsapp": ["Visitor lands on your website", "They click the floating chat button", "A WhatsApp conversation opens with your team or bot"],
+    "whatsapp-chatbots": ["Customer sends a message, any time of day", "Your chatbot instantly replies and asks qualifying questions", "Qualified leads are handed off to your team automatically"],
+    "whatsapp-forms": ["Customer needs to share details — order, booking, feedback", "A form appears right inside the chat", "Responses save automatically to their conversation and CRM"],
+    "whatsapp-broadcasts": ["You pick a segment of customers to reach", "Send one approved template message to the whole list at once", "Track delivery, reads, and replies from a single dashboard"],
+    "whatsapp-sequences": ["You define a follow-up schedule — Day 1, Day 3, Day 7", "Fame Inbox sends each message automatically on schedule", "The sequence stops instantly the moment the customer replies"],
+    "whatsapp-team-inbox": ["A conversation comes in on your shared number", "It's assigned to the right teammate automatically or manually", "Everyone sees full history — no duplicate replies, nothing missed"],
+    "whatsapp-payments": ["Customer is ready to buy, mid-conversation", "You send a payment link directly in the chat", "They pay without leaving WhatsApp — confirmation posts back instantly"],
+    "facebook-messenger": ["Customer messages your Facebook Page", "Automated replies or your team respond from the shared inbox", "Full conversation history stays alongside your WhatsApp chats"],
+    "instagram-automation": ["Customer comments or DMs your Instagram post", "Keyword-triggered automation replies instantly", "Conversation continues in DM, tracked in your shared inbox"],
+    "smart-crm": ["Every conversation automatically creates or updates a customer profile", "Contacts are tagged and segmented based on behavior", "Your team sees full journey history before replying to anyone"],
+    "visual-bot-builder": ["Drag and drop conversation steps onto the canvas", "Set branching logic based on what customers say", "Publish — the same bot runs across WhatsApp, Messenger, and Instagram"],
+    "automation-builder": ["Pick a trigger — a tag, a reply, a form submission", "Define the conditions and actions that should follow", "The workflow runs automatically every time, no manual work"],
+}
+
+BENEFITS_MAP = {
+    "click-to-whatsapp-ads": ["Higher conversion than sending clicks to a landing page", "No app-switching friction for the customer", "Full ad-source tracking inside your inbox"],
+    "qr-to-whatsapp": ["Works for both online and offline touchpoints", "No number to type or save", "See which code location drives the most chats"],
+    "link-to-whatsapp": ["One link works everywhere you post it", "No number lookup needed for the customer", "Pre-fill context so chats start warm, not cold"],
+    "web-widget-to-whatsapp": ["Higher reply rate than a static contact form", "Matches your site's branding", "Every widget chat lands straight in your shared inbox"],
+    "whatsapp-chatbots": ["Answers instantly, even outside business hours", "Never asks the same qualifying question twice", "Frees your team to focus only on qualified leads"],
+    "whatsapp-forms": ["No redirect to an external form page", "Higher completion rate than web forms", "Responses save directly to the conversation"],
+    "whatsapp-broadcasts": ["Reach thousands of customers in one send", "Read rates far higher than email", "Replies route straight back into your inbox"],
+    "whatsapp-sequences": ["Never forget a follow-up again", "Stops automatically the moment they reply", "Fully customizable timing per step"],
+    "whatsapp-team-inbox": ["No two agents replying to the same customer", "Full context handed off with every conversation", "See team response performance at a glance"],
+    "whatsapp-payments": ["Checkout without leaving the chat", "Fewer abandoned carts at the last step", "Instant confirmation for both sides"],
+    "facebook-messenger": ["One inbox for WhatsApp and Messenger together", "Same automation tools, one more channel", "No separate tool needed for Facebook leads"],
+    "instagram-automation": ["Catch leads from comments, not just DMs", "Story mentions tracked automatically", "Keeps Instagram leads from going cold"],
+    "smart-crm": ["No manual data entry required", "Customers segment themselves automatically", "One profile across every connected channel"],
+    "visual-bot-builder": ["No developer needed to build or edit a bot", "Launch in minutes, not weeks", "One bot definition, every channel"],
+    "automation-builder": ["Removes repetitive manual work from your team", "Connects conversations to real business actions", "Scales without adding headcount"],
+}
+
 def build_feature(feat):
     icon_svg = ICONS[feat["icon"]].replace('stroke="white"', 'stroke="#6E1E42"')
     body_html = "".join(f"<p>{p}</p>" for p in feat["body"])
     who = WHO_MAP.get(feat["slug"], "")
+    steps = STEPS_MAP.get(feat["slug"], [])
+    benefits = BENEFITS_MAP.get(feat["slug"], [])
+    steps_html = "".join(f"""
+    <div class="flow-step reveal">
+      <div class="flow-num">{i+1}</div>
+      <p>{s}</p>
+    </div>{'<div class="flow-arrow">&#8594;</div>' if i < len(steps)-1 else ''}""" for i, s in enumerate(steps))
+    benefits_html = "".join(f"""
+    <div class="strip-card">
+      <div class="item"><div class="dot"></div><p style="margin:0;font-size:13.5px;">{b}</p></div>
+    </div>""" for b in benefits)
     related = [f for f in FEATURES if f["cat"] == feat["cat"] and f["slug"] != feat["slug"]][:3]
     if len(related) < 3:
         related += [f for f in FEATURES if f["cat"] != feat["cat"] and f["slug"] != feat["slug"]][:3 - len(related)]
@@ -607,8 +654,31 @@ def build_feature(feat):
   </div>
   <div class="detail-section">
     {body_html}
-    <p style="background:#F3E3EC;border-radius:10px;padding:16px 20px;font-size:14px;color:var(--wine);margin-top:24px;"><strong>Who it's for:</strong> {who}</p>
+    <p style="background:#E6F7EF;border-radius:10px;padding:16px 20px;font-size:14px;color:var(--green-dark);margin-top:24px;"><strong>Who it's for:</strong> {who}</p>
   </div>
+</div>
+
+<div class="strip reveal">
+  <div class="strip-head">
+    <span class="eyebrow">How it works</span>
+    <h2>From first touch to open chat</h2>
+  </div>
+  <div class="flow-steps">
+    {steps_html}
+  </div>
+</div>
+
+<div class="strip">
+  <div class="strip-head">
+    <span class="eyebrow">Why it matters</span>
+    <h2>What this actually gets you</h2>
+  </div>
+  <div class="strip-grid" style="grid-template-columns:repeat(3,1fr);">
+    {benefits_html}
+  </div>
+</div>
+
+<div class="detail-body">
   <div class="detail-cta">
     <h3>See {feat['name']} in action</h3>
     <p>Book a short demo and we'll walk you through it live.</p>
