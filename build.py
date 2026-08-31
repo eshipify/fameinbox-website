@@ -1404,13 +1404,19 @@ def build_ads_landing():
   <div class="hero-cta">
     <a href="https://app.fameinbox.com/register" class="btn-primary" target="_blank" rel="noopener">Start Free 7-Day Trial</a>
   </div>
-  <div class="hero-mockup">
-    <div class="hero-mockup-head"><span class="dot"></span> Fame Inbox — Live Chat</div>
-    <div class="hero-mockup-body">
-      <div class="bubble in">Hi! I saw your ad — do you deliver to Chennai?</div>
-      <div class="bubble out">Yes! Free delivery on orders over ₹999 🚚</div>
-      <div class="bubble in">Perfect, I'd like to order 2 sarees</div>
-      <div class="bubble out">Great choice — here's a payment link to complete your order ✅</div>
+  <div class="lp-photo-row">
+    <div class="lp-photo-side">
+      <img class="lp-photo" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HLhw9Ir7Ppe4qsfz7HqCmgxiTb/hf_20260831_084329_dc308c4b-2cfa-490a-bd2f-f49ed03e5578.png" alt="Business owner replying to customers on WhatsApp" loading="lazy">
+      <span class="lp-photo-badge">&#9889; Instant Replies</span>
+    </div>
+    <div class="hero-mockup lp-photo-mockup">
+      <div class="hero-mockup-head"><span class="dot"></span> Fame Inbox — Live Chat</div>
+      <div class="hero-mockup-body">
+        <div class="bubble in">Hi! I saw your ad — do you have this in stock?</div>
+        <div class="bubble out">Yes! Here's a quick link to grab it 👇</div>
+        <div class="bubble in">Just ordered, thanks!</div>
+        <div class="bubble out">You're all set ✅ We'll notify you when it ships</div>
+      </div>
     </div>
   </div>
 </section>
