@@ -794,6 +794,50 @@ def build_feature(feat):
   </div>
   <p class="product-shot-caption">Illustrative preview of the Automation Builder workflow list — sample workflows shown.</p>
 """
+    if feat["slug"] == "whatsapp-broadcasts":
+        workflow_mockup = """
+  <div class="bc-mockup">
+    <div class="bc-head"><span>&#8592;</span> SEASON SALE PREVIEW</div>
+    <div class="bc-stats">
+      <div class="bc-stat"><span class="pct">100%</span><span class="lbl">Sent</span></div>
+      <div class="bc-stat"><span class="pct">97%</span><span class="lbl">Delivered</span></div>
+      <div class="bc-stat"><span class="pct">89%</span><span class="lbl">Read</span></div>
+      <div class="bc-stat active"><span class="pct">41%</span><span class="lbl">Clicked</span></div>
+      <div class="bc-stat"><span class="pct">33%</span><span class="lbl">Replied</span></div>
+    </div>
+    <div class="bc-sample">
+      <div class="bc-bubble">
+        <span class="bc-wa-icon">&#128241;</span>
+        Hey there 👋<br>Our Season Sale is LIVE! Order today and get free shipping 🎉
+        <span class="bc-time">4:31 pm</span>
+      </div>
+    </div>
+  </div>
+  <p class="product-shot-caption">Illustrative preview of broadcast analytics — sample campaign, sample numbers.</p>
+"""
+    if feat["slug"] == "visual-bot-builder":
+        workflow_mockup = """
+  <div class="bot-mockup">
+    <div class="bot-head"><span>&#8592; Sample Chatbot</span><span class="bot-save">Save Changes</span></div>
+    <div class="bot-canvas">
+      <p class="bot-canvas-label">Contents</p>
+      <div class="bot-tiles">
+        <div class="bot-tile">Aa</div>
+        <div class="bot-tile">🖼</div>
+        <div class="bot-tile">☰</div>
+        <div class="bot-tile">🛒</div>
+      </div>
+      <p class="bot-canvas-label">Actions</p>
+      <div class="bot-tiles">
+        <div class="bot-tile">🤖</div>
+        <div class="bot-tile">if</div>
+        <div class="bot-tile">📍</div>
+        <div class="bot-tile">?</div>
+      </div>
+    </div>
+  </div>
+  <p class="product-shot-caption">Illustrative preview of the drag-and-drop bot builder canvas.</p>
+"""
     html = head(f"{feat['name']} — Fame Inbox", feat["tag"], depth="../", path=f"features/{feat['slug']}.html")
     html += header(depth="../")
     html += f"""
