@@ -855,6 +855,71 @@ def build_feature(feat):
   </div>
   <p class="product-shot-caption">Illustrative preview of the drag-and-drop bot builder canvas.</p>
 """
+
+    MINI_ANIM = {
+        "click-to-whatsapp-ads": ("tap", "Ad tap opens a live chat"),
+        "qr-to-whatsapp": ("scan", "Scanning opens a live chat"),
+        "link-to-whatsapp": ("tap", "One tap opens the chat"),
+        "web-widget-to-whatsapp": ("tap", "Widget click opens the chat"),
+        "whatsapp-chatbots": ("typing", "Bot replies instantly"),
+        "whatsapp-forms": ("checks", "Details captured in-chat"),
+        "whatsapp-sequences": ("timeline", "Automated follow-ups over time"),
+        "whatsapp-team-inbox": ("handoff", "Conversation assigned to the right agent"),
+        "whatsapp-payments": ("payment", "Payment confirmed instantly"),
+        "facebook-messenger": ("typing", "Messenger replies from the same inbox"),
+        "instagram-automation": ("typing", "Comment triggers an instant DM"),
+        "smart-crm": ("checks", "Customer profile builds automatically"),
+    }
+    if feat["slug"] in MINI_ANIM and not workflow_mockup:
+        atype, caption = MINI_ANIM[feat["slug"]]
+        inner = ""
+        if atype == "tap":
+            inner = """
+      <div class="anim-tap-btn"><span class="anim-ripple"></span>Tap</div>
+      <div class="anim-arrow-down">&#8595;</div>
+      <div class="anim-chat-pop">Chat opened ✅</div>"""
+        elif atype == "scan":
+            inner = """
+      <div class="anim-qr"><div class="anim-qr-line"></div></div>
+      <div class="anim-arrow-down">&#8595;</div>
+      <div class="anim-chat-pop">Chat opened ✅</div>"""
+        elif atype == "typing":
+            inner = """
+      <div class="anim-bubble-in">Hi, quick question...</div>
+      <div class="anim-typing-dots"><span></span><span></span><span></span></div>
+      <div class="anim-bubble-out">Here's the answer 👋</div>"""
+        elif atype == "checks":
+            inner = """
+      <div class="anim-check-row"><span class="anim-check">&#10003;</span> Name</div>
+      <div class="anim-check-row" style="--d:1"><span class="anim-check">&#10003;</span> Phone Number</div>
+      <div class="anim-check-row" style="--d:2"><span class="anim-check">&#10003;</span> Order Details</div>"""
+        elif atype == "timeline":
+            inner = """
+      <div class="anim-timeline">
+        <div class="anim-tl-dot">Day 1</div>
+        <div class="anim-tl-line"></div>
+        <div class="anim-tl-dot" style="--d:1">Day 3</div>
+        <div class="anim-tl-line" style="--d:1"></div>
+        <div class="anim-tl-dot" style="--d:2">Day 7</div>
+      </div>"""
+        elif atype == "handoff":
+            inner = """
+      <div class="anim-handoff-row">
+        <div class="anim-avatar">A</div>
+        <div class="anim-handoff-track"><div class="anim-handoff-dot"></div></div>
+        <div class="anim-avatar">B</div>
+      </div>
+      <p class="anim-handoff-label">Assigned to Agent B</p>"""
+        elif atype == "payment":
+            inner = """
+      <div class="anim-pay-card"><span class="anim-pay-amount">₹899.00</span><span class="anim-pay-check">&#10003;</span></div>
+      <p class="anim-handoff-label">Payment received</p>"""
+        workflow_mockup = f"""
+  <div class="mini-anim">
+    {inner}
+  </div>
+  <p class="product-shot-caption">{caption} — illustrative animation.</p>
+"""
     html = head(f"{feat['name']} — Fame Inbox", feat["tag"], depth="../", path=f"features/{feat['slug']}.html")
     html += header(depth="../")
     html += f"""
