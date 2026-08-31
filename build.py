@@ -362,7 +362,7 @@ def header(depth=""):
         <li><a href="https://app.fameinbox.com/">Login</a></li>
       </ul>
       <div class="cta-group">
-        <a href="https://wa.me/918939888107?text=Hi%2C%20I%27d%20like%20to%20start%20my%20free%207-day%20Fame%20Inbox%20trial" class="cta-header" target="_blank" rel="noopener">Start for FREE &#8594;</a>
+        <a href="https://app.fameinbox.com/" class="cta-header" target="_blank" rel="noopener">Start for FREE &#8594;</a>
         <a href="https://zbooking.in/OEgH9" class="cta-header-outline" target="_blank" rel="noopener">Book a Demo &#8594;</a>
       </div>
     </nav>
@@ -444,7 +444,7 @@ def build_home():
   <p class="sub">Capture, qualify, nurture and close every lead on the app your customers already have open — WhatsApp.</p>
   <div class="hero-cta">
     <a href="https://zbooking.in/OEgH9" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
-    <a href="contact.html" class="btn-secondary">Start Free Trial</a>
+    <a href="https://app.fameinbox.com/" class="btn-secondary">Start Free Trial</a>
   </div>
   <div class="hero-mockup">
     <div class="hero-mockup-head"><span class="dot"></span> Fame Inbox — Live Chat</div>
@@ -710,7 +710,7 @@ def build_pricing():
       <li>WhatsApp + Instagram</li>
       <li>7-day trial of core features before you commit</li>
     </ul>
-    <a href="https://zbooking.in/OEgH9" class="btn-secondary" target="_blank" rel="noopener">Start Free Trial</a>
+    <a href="https://app.fameinbox.com/" class="btn-secondary" target="_blank" rel="noopener">Start Free Trial</a>
   </div>
 
   <div class="price-card">
@@ -1040,7 +1040,7 @@ def build_ads_landing():
     <span class="lp-badge">7-Day Free Trial</span>
   </div>
   <div class="hero-cta">
-    <a href="https://wa.me/918939888107?text=Hi%2C%20I%27d%20like%20to%20start%20my%20free%207-day%20Fame%20Inbox%20trial" class="btn-primary" target="_blank" rel="noopener">Start Free 7-Day Trial</a>
+    <a href="https://app.fameinbox.com/" class="btn-primary" target="_blank" rel="noopener">Start Free 7-Day Trial</a>
   </div>
   <div class="hero-mockup">
     <div class="hero-mockup-head"><span class="dot"></span> Fame Inbox — Live Chat</div>
@@ -1074,7 +1074,7 @@ def build_ads_landing():
 <div class="lp-final-cta">
   <h2>Try it free for 7 days</h2>
   <p>No commitment — see how fast leads move from chat to sale.</p>
-  <a href="https://wa.me/918939888107?text=Hi%2C%20I%27d%20like%20to%20start%20my%20free%207-day%20Fame%20Inbox%20trial" class="btn-primary" target="_blank" rel="noopener">Start Free 7-Day Trial</a>
+  <a href="https://app.fameinbox.com/" class="btn-primary" target="_blank" rel="noopener">Start Free 7-Day Trial</a>
 </div>
 
 <footer>
