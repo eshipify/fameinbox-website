@@ -159,6 +159,22 @@ li.has-mega.open .mega{display:grid;opacity:1;transform:translateX(-50%) transla
 .wf-title{color:var(--ink);font-weight:500;}
 .wf-date{color:var(--muted);font-size:12px;}
 .wf-action{color:var(--muted);}
+.compare-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:900px;margin:0 auto;}
+.compare-card{border-radius:var(--radius);padding:28px;}
+.compare-card.without{background:#FDF1F1;border:1px solid #F3D6D6;}
+.compare-card.with{background:#E6F7EF;border:1px solid #C7EBD9;}
+.compare-label{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px;}
+.compare-card.without .compare-label{color:#C0392B;}
+.compare-card.with .compare-label{color:var(--green-dark);}
+.compare-card p:last-child{margin:0;font-size:14px;line-height:1.6;color:var(--ink);}
+.faq-list{max-width:760px;margin:0 auto;}
+.faq-item{border-bottom:1px solid var(--line);padding:20px 0;}
+.faq-item:first-child{padding-top:0;}
+.faq-q{font-weight:700;font-size:15px;margin:0 0 8px;color:var(--ink);}
+.faq-a{margin:0;font-size:14px;color:var(--muted);line-height:1.6;}
+@media (max-width:700px){
+  .compare-row{grid-template-columns:1fr;}
+}
 .detail-illustration svg{width:100%;max-width:520px;height:auto;}
 .detail-section h2{font-size:24px;margin:44px 0 14px;}
 .detail-section p{font-size:16px;line-height:1.7;color:#3a3232;margin:0 0 14px;}

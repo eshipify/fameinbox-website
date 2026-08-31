@@ -660,6 +660,50 @@ BENEFITS_MAP = {
     "automation-builder": ["Removes repetitive manual work from your team", "Connects conversations to real business actions", "Scales without adding headcount"],
 }
 
+COMPARE_MAP = {
+    "click-to-whatsapp-ads": ("Ad clicks land on a slow landing page, most people bounce before filling a form", "Ad clicks open a live WhatsApp chat instantly — no page load, no form"),
+    "qr-to-whatsapp": ("Customers write down a number or search for you online later, most never do", "One scan opens a chat instantly — no typing, no searching"),
+    "link-to-whatsapp": ("People have to save your number before messaging you, an extra step many skip", "One tap opens the chat immediately — nothing to save first"),
+    "web-widget-to-whatsapp": ("Visitors hit a contact form, submit, then wait hours or days for a reply", "Visitors get a live chat instantly, right when their interest is highest"),
+    "whatsapp-chatbots": ("Leads outside business hours go unanswered until the next morning", "Every message gets an instant reply, any time, any day"),
+    "whatsapp-forms": ("Customers get redirected to an external form and half never finish it", "The form appears right in the chat — no redirect, higher completion"),
+    "whatsapp-broadcasts": ("Email blasts sit unread in a promotions folder", "WhatsApp broadcasts get opened and read within minutes"),
+    "whatsapp-sequences": ("Follow-ups depend on someone remembering to send them — most don't", "Follow-ups go out automatically, every time, on schedule"),
+    "whatsapp-team-inbox": ("Multiple agents reply from personal phones, causing duplicate or missed replies", "One shared inbox — clear ownership, zero duplicate replies"),
+    "whatsapp-payments": ("Customers get sent to a separate checkout page and drop off there", "Payment happens inside the same chat — no page switch, no drop-off"),
+    "facebook-messenger": ("Facebook leads sit in a separate inbox your team checks less often", "Messenger conversations live in the same inbox as WhatsApp"),
+    "instagram-automation": ("Comments pile up faster than anyone can reply, leads go cold", "Keyword-triggered replies catch leads the moment they comment"),
+    "smart-crm": ("Customer data is scattered across spreadsheets and someone's memory", "Every customer has one automatically-updated profile"),
+    "visual-bot-builder": ("Building a bot means waiting on a developer's availability", "Build and edit bots yourself, live, in minutes"),
+    "automation-builder": ("Repetitive tasks eat your team's time every single day", "Workflows run themselves once a condition is met"),
+}
+
+EXAMPLE_MAP = {
+    "click-to-whatsapp-ads": "A saree seller runs a Meta ad for a festive sale. Someone taps the ad while scrolling Instagram, and instead of loading a slow landing page, WhatsApp opens instantly with a greeting already showing the sale details. They ask about sizes, and within two minutes the order is placed — all before they'd have finished loading a normal website.",
+    "qr-to-whatsapp": "A boutique prints a QR code on its shopping bags. A customer who bought once scans it out of curiosity months later, and a WhatsApp chat opens with a \"Welcome back!\" greeting and a discount code — turning a one-time buyer into a repeat one.",
+    "link-to-whatsapp": "A consultant adds their Fame Inbox chat link to their email signature. A prospect replying to an unrelated email notices it, taps it out of curiosity, and starts a conversation that becomes a client — without ever having to look up a phone number.",
+    "web-widget-to-whatsapp": "A visitor lands on a service business's pricing page, hesitates, and almost leaves. The chat widget catches their eye, they ask one quick question, and get an answer in under a minute — the kind of instant reassurance a contact form could never give.",
+    "whatsapp-chatbots": "A customer messages a clinic at 11pm asking about appointment availability. The chatbot replies immediately with open slots and books them in, so by the time staff arrive the next morning, the appointment is already confirmed.",
+    "whatsapp-forms": "A coaching business needs student details to process enrollment. Instead of a clunky external form, a WhatsApp Form collects name, batch preference, and payment mode directly in the chat — completion rates go up simply because nobody has to leave the conversation.",
+    "whatsapp-broadcasts": "A restaurant sends a broadcast about a weekend special to last month's customers. Within 20 minutes, replies start coming in with orders — a response rate an email campaign for the same list never came close to.",
+    "whatsapp-sequences": "A real estate agent shows a property but the buyer goes quiet. A sequence automatically checks in 3 days later, then again a week after — no manual reminder needed, and the buyer eventually re-engages on the second follow-up.",
+    "whatsapp-team-inbox": "A growing team used to have three people replying from the same phone, sometimes to the same customer twice. With a shared inbox, conversations get assigned automatically, and everyone sees the full history before replying.",
+    "whatsapp-payments": "A customer finishes browsing a product catalog and says they're ready to buy. Instead of sending them to a separate checkout page, a payment link appears in the same chat — they pay in seconds, without ever leaving WhatsApp.",
+    "facebook-messenger": "A customer messages a brand's Facebook Page asking about a product. The reply comes from the same shared inbox the team already uses for WhatsApp — no separate app to check, no lead falling through the cracks.",
+    "instagram-automation": "A post goes semi-viral and the comments fill with \"price?\". An automation replies instantly with pricing and a link to DM, turning a flood of comments into actual conversations instead of ignored noise.",
+    "smart-crm": "A business that used to track customers in a spreadsheet now sees every contact automatically tagged and segmented — no one has to remember who bought what or when they last messaged in.",
+    "visual-bot-builder": "A small team wants a bot to handle FAQs but has no developer. Using the drag-and-drop builder, they put together a working flow in an afternoon and publish it the same day.",
+    "automation-builder": "Every time a new lead fills a form, someone used to manually tag them and notify sales. Now a single automation handles the tagging, notification, and CRM update the instant the form is submitted.",
+}
+
+FAQ_MAP = {
+    "default": [
+        ("Do I need any technical skills to set this up?", "No. Fame Inbox is built for non-technical teams — most features are configured through simple, visual tools with no code required."),
+        ("How long does it take to get started?", "Most businesses have this running within a day. You can also book a demo and our team will walk you through setup live."),
+        ("Can I try it before committing to a paid plan?", "Yes — start with a free 7-day trial to see how it fits your workflow before choosing a plan."),
+    ],
+}
+
 def build_feature(feat):
     icon_svg = ICONS[feat["icon"]].replace('stroke="white"', 'stroke="#6E1E42"')
     body_html = "".join(f"<p>{p}</p>" for p in feat["body"])
@@ -684,6 +728,49 @@ def build_feature(feat):
   <h4>{r['name']}</h4>
   <p>{r['tag']}</p>
 </a>""" for r in related)
+    without_with = COMPARE_MAP.get(feat["slug"])
+    example = EXAMPLE_MAP.get(feat["slug"], "")
+    faqs = FAQ_MAP["default"]
+    compare_html = ""
+    if without_with:
+        w_without, w_with = without_with
+        compare_html = f"""
+<div class="strip">
+  <div class="strip-head">
+    <span class="eyebrow">The difference</span>
+    <h2>Before and after {feat['name']}</h2>
+  </div>
+  <div class="compare-row">
+    <div class="compare-card without">
+      <p class="compare-label">Without {feat['name']}</p>
+      <p>{w_without}</p>
+    </div>
+    <div class="compare-card with">
+      <p class="compare-label">With {feat['name']}</p>
+      <p>{w_with}</p>
+    </div>
+  </div>
+  <div style="text-align:center;margin-top:28px;">
+    <a href="https://app.fameinbox.com/register" class="btn-primary">Start Free Trial</a>
+  </div>
+</div>
+"""
+    example_html = ""
+    if example:
+        example_html = f"""
+<div class="detail-body">
+  <div class="detail-section" style="background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow-sm);">
+    <span class="eyebrow">In practice</span>
+    <p style="font-size:15.5px;line-height:1.75;margin-top:14px;">{example}</p>
+  </div>
+</div>
+"""
+    faq_html = "".join(f"""
+  <div class="faq-item">
+    <p class="faq-q">{q}</p>
+    <p class="faq-a">{a}</p>
+  </div>""" for q, a in faqs)
+
     workflow_mockup = ""
     if feat["slug"] == "automation-builder":
         rows = [
@@ -725,7 +812,7 @@ def build_feature(feat):
     <p style="background:#E6F7EF;border-radius:10px;padding:16px 20px;font-size:14px;color:var(--green-dark);margin-top:24px;"><strong>Who it's for:</strong> {who}</p>
   </div>
 </div>
-
+{compare_html}
 <div class="strip reveal">
   <div class="strip-head">
     <span class="eyebrow">How it works</span>
@@ -743,6 +830,16 @@ def build_feature(feat):
   </div>
   <div class="strip-grid" style="grid-template-columns:repeat(3,1fr);">
     {benefits_html}
+  </div>
+</div>
+{example_html}
+<div class="detail-body">
+  <div class="strip-head" style="margin-bottom:24px;">
+    <span class="eyebrow">Questions</span>
+    <h2>Before you get started</h2>
+  </div>
+  <div class="faq-list">
+    {faq_html}
   </div>
 </div>
 
