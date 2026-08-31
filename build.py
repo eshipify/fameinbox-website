@@ -912,7 +912,70 @@ def build_resources():
     with open(os.path.join(ROOT, "resources.html"), "w") as f:
         f.write(html)
 
+def build_ads_landing():
+    html = head("Start Free — Fame Inbox WhatsApp Automation", "Capture, qualify, and close leads on WhatsApp. Start your free 7-day trial today.", path="get-started.html")
+    html += """
+<header class="lp-header">
+  <a href="index.html" class="logo">FAME <span>INBOX</span></a>
+</header>
+
+<section class="lp-hero">
+  <h1>Turn WhatsApp Chats Into <span class="accent">Paying Customers</span></h1>
+  <p class="sub">Capture leads from ads, qualify them with a chatbot, and close the sale — all inside one WhatsApp conversation.</p>
+  <div class="lp-badge-row">
+    <span class="lp-badge">Official Meta Business Partner</span>
+    <span class="lp-badge">99.9% Uptime</span>
+    <span class="lp-badge">7-Day Free Trial</span>
+  </div>
+  <div class="hero-cta">
+    <a href="https://wa.me/918939888107?text=Hi%2C%20I%27d%20like%20to%20start%20my%20free%207-day%20Fame%20Inbox%20trial" class="btn-primary" target="_blank" rel="noopener">Start Free 7-Day Trial</a>
+  </div>
+  <div class="hero-mockup">
+    <div class="hero-mockup-head"><span class="dot"></span> Fame Inbox — Live Chat</div>
+    <div class="hero-mockup-body">
+      <div class="bubble in">Hi! I saw your ad — do you deliver to Chennai?</div>
+      <div class="bubble out">Yes! Free delivery on orders over ₹999 🚚</div>
+      <div class="bubble in">Perfect, I'd like to order 2 sarees</div>
+      <div class="bubble out">Great choice — here's a payment link to complete your order ✅</div>
+    </div>
+  </div>
+</section>
+
+<div class="lp-benefits">
+  <div class="lp-benefit">
+    <div class="icon">""" + ICONS["ad"] + """</div>
+    <h4>Capture</h4>
+    <p>Ad clicks land straight in a live WhatsApp conversation — no landing page drop-off.</p>
+  </div>
+  <div class="lp-benefit">
+    <div class="icon">""" + ICONS["bot"] + """</div>
+    <h4>Qualify</h4>
+    <p>A chatbot pre-screens every lead before your team spends a minute on it.</p>
+  </div>
+  <div class="lp-benefit">
+    <div class="icon">""" + ICONS["payments"] + """</div>
+    <h4>Close</h4>
+    <p>Send a payment link in the same chat — no separate checkout page needed.</p>
+  </div>
+</div>
+
+<div class="lp-final-cta">
+  <h2>Try it free for 7 days</h2>
+  <p>No commitment — see how fast leads move from chat to sale.</p>
+  <a href="https://wa.me/918939888107?text=Hi%2C%20I%27d%20like%20to%20start%20my%20free%207-day%20Fame%20Inbox%20trial" class="btn-primary" target="_blank" rel="noopener">Start Free 7-Day Trial</a>
+</div>
+
+<footer>
+  &copy; 2026 <span>Fame Inbox</span>. All rights reserved.
+</footer>
+</body>
+</html>
+"""
+    with open(os.path.join(ROOT, "get-started.html"), "w") as f:
+        f.write(html)
+
 build_resources()
+build_ads_landing()
 
 def build_sitemap():
     pages = ["", "features/index.html", "pricing.html", "partners.html", "solutions.html",
