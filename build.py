@@ -1,6 +1,7 @@
 import os
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
+os.makedirs(os.path.join(ROOT, "products"), exist_ok=True)
 
 ICONS = {
     "ad": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 4l8 8-8 8M20 4v16"/></svg>',
@@ -18,6 +19,13 @@ ICONS = {
     "crm": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>',
     "builder": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>',
     "automation": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>',
+    "shop": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 9l1-5h16l1 5"/><path d="M3 9a2 2 0 004 0 2 2 0 004 0 2 2 0 004 0 2 2 0 004 0"/><path d="M5 9v10h14V9"/></svg>',
+    "gift": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="8" width="18" height="13"/><path d="M3 8h18M12 8v13M12 8c-1.5-4-6-4-6-1s3 1 6 1zM12 8c1.5-4 6-4 6-1s-3 1-6 1z"/></svg>',
+    "calendar": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg>',
+    "chart": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>',
+    "folder": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>',
+    "radio": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="2"/><path d="M8.5 8.5a5 5 0 000 7M15.5 15.5a5 5 0 000-7M5.5 5.5a9 9 0 000 13M18.5 18.5a9 9 0 000-13"/></svg>',
+    "grid": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>',
 }
 
 FEATURES = [
@@ -230,6 +238,72 @@ def head(title, desc, depth="", path=""):
 <body>
 """
 
+PRODUCTS = [
+    {"slug": "ecommerce", "name": "Ecommerce", "cat": "Commerce & Loyalty",
+     "tag": "Sell products directly through WhatsApp", "icon": "shop",
+     "body": ["A complete storefront inside WhatsApp — customers browse your catalog, add to cart, and check out without leaving the conversation."]},
+    {"slug": "rewardz", "name": "Rewardz", "cat": "Commerce & Loyalty",
+     "tag": "Turn repeat customers into loyal ones", "icon": "gift",
+     "body": ["Track loyalty points and distribute rewards automatically, right inside the same conversations you're already having with customers."]},
+    {"slug": "whatsapp-miniapps", "name": "WhatsApp MiniApps", "cat": "Commerce & Loyalty",
+     "tag": "Rich in-chat experiences beyond plain text", "icon": "widget",
+     "body": ["Build interactive mini-apps that run directly inside WhatsApp — for bookings, catalogs, or custom flows your business needs."]},
+    {"slug": "dynamic-experiences", "name": "Dynamic Experiences", "cat": "Automation & Scheduling",
+     "tag": "Personalized, interactive content at scale", "icon": "automation",
+     "body": ["Generate personalized images, PDFs, and interactive content on the fly for each customer — automatically, without manual design work."]},
+    {"slug": "calendar", "name": "Calendar", "cat": "Automation & Scheduling",
+     "tag": "Automated appointment scheduling", "icon": "calendar",
+     "body": ["Sync with Google and Outlook calendars to let customers book, reschedule, and get reminders — all inside WhatsApp."]},
+    {"slug": "crm-analytics", "name": "CRM Analytics", "cat": "CRM & Operations",
+     "tag": "See what's actually happening with your customers", "icon": "chart",
+     "body": ["Real-time dashboards showing customer segments, conversation volume, and team performance — so decisions aren't based on guesswork."]},
+    {"slug": "departments", "name": "Departments", "cat": "CRM & Operations",
+     "tag": "Route conversations to the right team", "icon": "inbox",
+     "body": ["Organize your team into departments — sales, support, billing — so conversations reach the right people automatically."]},
+    {"slug": "media-manager", "name": "Media Manager", "cat": "CRM & Operations",
+     "tag": "Organize every image, video, and file in one place", "icon": "folder",
+     "body": ["A central library for all the media your team sends across conversations — no more hunting for the right file every time."]},
+    {"slug": "channels", "name": "Channels", "cat": "CRM & Operations",
+     "tag": "Manage every connected channel in one place", "icon": "grid",
+     "body": ["One dashboard to manage every messaging channel connected to your account — add, configure, and monitor without switching tools."]},
+    {"slug": "rcs-applications", "name": "RCS Applications", "cat": "Advanced Channels",
+     "tag": "Rich messaging beyond WhatsApp and SMS", "icon": "radio",
+     "body": ["Reach customers through RCS (Rich Communication Services) — rich media messaging built into Android's native messaging app."]},
+    {"slug": "qr-ticketing", "name": "QR Ticketing", "cat": "Advanced Channels",
+     "tag": "End-to-end event ticketing with QR check-in", "icon": "qr",
+     "body": ["Generate digital tickets with secure QR validation, and track attendance in real time — built for conferences, meetups, and events."]},
+]
+PRODUCT_CATS = ["Commerce & Loyalty", "Automation & Scheduling", "CRM & Operations", "Advanced Channels"]
+
+def build_product(p):
+    icon_svg = ICONS[p["icon"]].replace('stroke="white"', 'stroke="#6E1E42"')
+    body_html = "".join(f"<p>{b}</p>" for b in p["body"])
+    html = head(f"{p['name']} — Fame Inbox", p["tag"], depth="../", path=f"products/{p['slug']}.html")
+    html += header(depth="../")
+    html += f"""
+<section class="page-hero">
+  <span class="eyebrow">{p['cat']}</span>
+  <h1>{p['name']}</h1>
+  <p class="sub">{p['tag']}</p>
+</section>
+<div class="detail-body">
+  <div class="detail-illustration">
+    <svg viewBox="0 0 24 24" style="width:64px;height:64px;">{icon_svg}</svg>
+  </div>
+  <div class="detail-section">
+    {body_html}
+  </div>
+  <div class="detail-cta">
+    <h3>See {p['name']} in action</h3>
+    <p>Book a short demo and we'll walk you through it live.</p>
+    <a href="https://getamohan.zohobookings.in/#/407269000000044006?bookedFrom=ShortenURL" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
+  </div>
+</div>
+"""
+    html += footer(depth="../")
+    with open(os.path.join(ROOT, "products", f"{p['slug']}.html"), "w") as f:
+        f.write(html)
+
 def header(depth=""):
     cols = {c: [f for f in FEATURES if f["cat"] == c] for c in CATS}
     mega_cols = ""
@@ -245,6 +319,24 @@ def header(depth=""):
             <div>
               <p class="mega-col-title">{c}</p>{items}
             </div>"""
+    mega_cols += f"""
+            <div class="mega-viewall"><a href="{depth}features/index.html">View all features &#8594;</a></div>"""
+
+    pcols = {c: [p for p in PRODUCTS if p["cat"] == c] for c in PRODUCT_CATS}
+    product_cols = ""
+    for c in PRODUCT_CATS:
+        items = ""
+        for p in pcols[c]:
+            items += f"""
+              <a class="mega-item" href="{depth}products/{p['slug']}.html">
+                <div class="icon">{ICONS[p['icon']]}</div>
+                <div><h4>{p['name']}</h4><p>{p['tag']}</p></div>
+              </a>"""
+        product_cols += f"""
+            <div>
+              <p class="mega-col-title">{c}</p>{items}
+            </div>"""
+
     return f"""<header>
   <div class="nav-wrap">
     <a href="{depth}index.html" class="logo">FAME <span>INBOX</span></a>
@@ -253,13 +345,16 @@ def header(depth=""):
     </button>
     <nav class="primary" id="primaryNav">
       <ul>
-        <li><a href="{depth}index.html">Home</a></li>
-        <li class="has-mega" id="featuresLi">
-          <button class="navtop" id="featuresBtn" aria-expanded="false">Features <span class="caret">&#9662;</span></button>
+        <li class="has-mega">
+          <button class="navtop" aria-expanded="false">Features <span class="caret">&#9662;</span></button>
           <div class="mega">{mega_cols}
           </div>
         </li>
-        <li><a href="{depth}features/index.html">All Features</a></li>
+        <li class="has-mega">
+          <button class="navtop" aria-expanded="false">Products <span class="caret">&#9662;</span></button>
+          <div class="mega">{product_cols}
+          </div>
+        </li>
         <li><a href="{depth}solutions.html">Solutions</a></li>
         <li><a href="{depth}resources.html">Resources</a></li>
         <li><a href="{depth}integrations.html">Integrations</a></li>
@@ -836,6 +931,8 @@ build_solutions()
 build_integrations()
 for feat in FEATURES:
     build_feature(feat)
+for prod in PRODUCTS:
+    build_product(prod)
 build_about()
 build_contact()
 
@@ -981,6 +1078,7 @@ def build_sitemap():
     pages = ["", "features/index.html", "pricing.html", "partners.html", "solutions.html",
              "integrations.html", "resources.html", "about.html", "contact.html"]
     pages += [f"features/{f['slug']}.html" for f in FEATURES]
+    pages += [f"products/{p['slug']}.html" for p in PRODUCTS]
     urls = "".join(f"""  <url>
     <loc>{BASE_URL}/{p}</loc>
   </url>
