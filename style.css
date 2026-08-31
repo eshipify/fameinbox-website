@@ -260,3 +260,34 @@ footer a{text-decoration:underline;}
   .lp-benefits{grid-template-columns:1fr;}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none !important;}}
+
+/* ===== AiSensy-style white/green/black theme override ===== */
+:root{
+  --wine: #111111;
+  --wine-dark: #000000;
+  --wine-light: #333333;
+  --cream: #ffffff;
+  --ink: #111111;
+  --line: #E5E7EB;
+}
+header{background:#ffffff;border-bottom:1px solid var(--line);box-shadow:0 1px 0 rgba(0,0,0,.03);}
+.logo{color:var(--ink);}
+.logo span{color:var(--green);}
+nav.primary > ul > li > a, nav.primary > ul > li > button.navtop{color:var(--ink);}
+nav.primary > ul > li > a:hover, nav.primary > ul > li > button.navtop:hover{background:#F3F4F6;}
+.caret{color:var(--ink);}
+.cta-header-outline{color:var(--ink);border-color:var(--line);}
+.cta-header-outline:hover{border-color:var(--ink);background:#F3F4F6;}
+.hamburger span{background:var(--ink);}
+footer{background:#111111;}
+.eyebrow{background:#E6F7EF;color:var(--green-dark);}
+.page-hero::before{background:radial-gradient(ellipse at center, rgba(20,167,108,.12) 0%, rgba(20,167,108,.05) 45%, transparent 70%);}
+.mega-item .icon, .hub-card .icon, .lp-benefit .icon{background:linear-gradient(145deg,var(--green),var(--green-dark));}
+.strip-card .dot{background:var(--green);}
+@media (max-width:880px){
+  nav.primary{background:#ffffff;box-shadow:0 8px 20px rgba(0,0,0,.06);}
+  nav.primary > ul > li > a, nav.primary > ul > li > button.navtop{border-bottom-color:var(--line);}
+  .mega{background:#F9FAFB;}
+  .mega-item h4{color:var(--ink);}
+  .mega-item p{color:var(--muted);}
+}
