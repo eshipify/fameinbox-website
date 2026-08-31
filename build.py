@@ -623,10 +623,10 @@ def build_feature(feat):
     steps = STEPS_MAP.get(feat["slug"], [])
     benefits = BENEFITS_MAP.get(feat["slug"], [])
     steps_html = "".join(f"""
-    <div class="flow-step reveal">
+    <div class="flow-step reveal" style="--i:{i};">
       <div class="flow-num">{i+1}</div>
       <p>{s}</p>
-    </div>{'<div class="flow-arrow">&#8594;</div>' if i < len(steps)-1 else ''}""" for i, s in enumerate(steps))
+    </div>{'<div class="flow-arrow"><div class="flow-arrow-track"></div><div class="flow-arrow-dot" style="animation-delay:' + str(i*0.5) + 's;"></div></div>' if i < len(steps)-1 else ''}""" for i, s in enumerate(steps))
     benefits_html = "".join(f"""
     <div class="strip-card">
       <div class="item"><div class="dot"></div><p style="margin:0;font-size:13.5px;">{b}</p></div>
