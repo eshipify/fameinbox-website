@@ -483,16 +483,29 @@ def build_home():
     <a href="https://app.fameinbox.com/register" class="btn-secondary">Start Free Trial</a>
   </div>
   <div class="hero-photo-wrap">
-    <img class="hero-photo" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HLhw9Ir7Ppe4qsfz7HqCmgxiTb/hf_20260831_083512_4c8c6eea-50e5-424c-b037-9aa5aee5108f.png" alt="Woman using WhatsApp on her phone" loading="lazy">
-    <div class="hero-mockup hero-mockup-floating">
-      <div class="hero-mockup-head"><span class="dot"></span> Fame Inbox — Live Chat</div>
-      <div class="hero-mockup-body">
-        <div class="bubble in">Hi! I saw your ad — do you deliver to Chennai?</div>
-        <div class="bubble out">Yes! Free delivery on orders over ₹999 🚚</div>
-        <div class="bubble in">Perfect, I'd like to order 2 sarees</div>
-        <div class="bubble out">Great choice — here's a payment link to complete your order ✅</div>
+    <div class="hero-orbit"></div>
+    <span class="hero-badge hero-badge-wa">
+      <svg viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.82L2 22l5.44-1.43a9.86 9.86 0 004.6 1.17h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2z"/></svg>
+    </span>
+    <div class="hero-ad-card">
+      <div class="hero-ad-head"><span class="hero-ad-dot"></span> Fame Bazaar <svg viewBox="0 0 24 24" width="12" height="12" fill="#14A76C"><circle cx="12" cy="12" r="10"/></svg></div>
+      <p class="hero-ad-sub">Sponsored</p>
+      <div class="hero-ad-image"></div>
+      <div class="hero-ad-cta">Chat on WhatsApp</div>
+    </div>
+    <img class="hero-photo" src="https://d8j0ntlcm91z4.cloudfront.net/user_3HLhw9Ir7Ppe4qsfz7HqCmgxiTb/hf_20260831_083952_c0cdea9b-2ad7-48f6-9a0d-91213fc14835.png" alt="Woman using WhatsApp on her phone" loading="lazy">
+    <div class="hero-chat-card">
+      <div class="hero-chat-head"><span>&#8592;</span> Fame Bazaar <svg viewBox="0 0 24 24" width="12" height="12" fill="#14A76C"><circle cx="12" cy="12" r="10"/></svg></div>
+      <div class="hero-chat-body">
+        <div class="hero-chat-bubble in">Hi, is the blue kurta set still available?</div>
+        <div class="hero-chat-bubble out">Yes! Order today and enjoy 20% OFF 🎉<br><a>Place Order Now</a></div>
+        <div class="hero-chat-price">₹899.00<span>Sent to You &middot; Completed</span></div>
       </div>
     </div>
+    <span class="hero-badge hero-badge-order">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+      Order Placed
+    </span>
   </div>
 
 </section>
