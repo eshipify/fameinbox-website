@@ -550,28 +550,35 @@ def build_hub():
   <div class="dash-preview">
     <div class="dash-sidebar">
       <div class="dash-sidebar-dot"></div>
-      <div class="dash-sidebar-icon"></div>
-      <div class="dash-sidebar-icon"></div>
-      <div class="dash-sidebar-icon"></div>
-      <div class="dash-sidebar-icon"></div>
-      <div class="dash-sidebar-icon"></div>
+      <span class="dash-nav-item active" title="Dashboard"><span class="dash-nav-icon"></span></span>
+      <span class="dash-nav-item" title="Channels"><span class="dash-nav-icon"></span></span>
+      <span class="dash-nav-item" title="CRM"><span class="dash-nav-icon"></span></span>
+      <span class="dash-nav-item" title="Chatbots"><span class="dash-nav-icon"></span></span>
+      <span class="dash-nav-item" title="Automations"><span class="dash-nav-icon"></span></span>
+      <span class="dash-nav-item" title="WhatsApp Mini-Apps"><span class="dash-nav-icon"></span></span>
+      <span class="dash-nav-item" title="Lead Source"><span class="dash-nav-icon"></span></span>
     </div>
     <div class="dash-list">
       <div class="dash-list-head">Chats</div>
-      <div class="dash-row"><span class="dash-avatar"></span><span class="dash-lines"><span></span><span></span></span></div>
-      <div class="dash-row"><span class="dash-avatar"></span><span class="dash-lines"><span></span><span></span></span></div>
-      <div class="dash-row active"><span class="dash-avatar"></span><span class="dash-lines"><span></span><span></span></span></div>
-      <div class="dash-row"><span class="dash-avatar"></span><span class="dash-lines"><span></span><span></span></span></div>
-      <div class="dash-row"><span class="dash-avatar"></span><span class="dash-lines"><span></span><span></span></span></div>
+      <div class="dash-search">Search in chat</div>
+      <div class="dash-tag">Sample Tag</div>
+      <div class="dash-row"><span class="dash-avatar wa"></span><span class="dash-lines"><span class="name">Customer 1</span><span class="preview">Image</span></span></div>
+      <div class="dash-row"><span class="dash-avatar ig"></span><span class="dash-lines"><span class="name">Customer 2</span><span class="preview">Image</span></span></div>
+      <div class="dash-row active"><span class="dash-avatar wa"></span><span class="dash-lines"><span class="name">Customer 3</span><span class="preview">Button</span></span></div>
+      <div class="dash-row"><span class="dash-avatar wa"></span><span class="dash-lines"><span class="name">Customer 4</span><span class="preview">Text message</span></span></div>
+      <div class="dash-row"><span class="dash-avatar fb"></span><span class="dash-lines"><span class="name">Customer 5</span><span class="preview">Text message</span></span></div>
     </div>
     <div class="dash-chat">
-      <div class="bubble in">Hi, do you have this in stock?</div>
-      <div class="bubble out">Yes! Here's a payment link 👇</div>
-      <div class="bubble in">Paying now</div>
-      <div class="bubble out">Order confirmed ✅</div>
+      <div class="dash-chat-head">Customer 3</div>
+      <div class="dash-chat-body">
+        <div class="bubble in">Hi, do you have this in stock?</div>
+        <div class="bubble out">Yes! Here's a payment link 👇</div>
+        <div class="bubble in">Paying now</div>
+        <div class="bubble out">Order confirmed ✅</div>
+      </div>
     </div>
   </div>
-  <p class="product-shot-caption">Illustrative preview of the Fame Inbox dashboard layout — not the exact real interface.</p>
+  <p class="product-shot-caption">Illustrative preview of the Fame Inbox dashboard layout — sample data shown, not real customer information.</p>
 </div>
 
 <div class="hub-grid">
