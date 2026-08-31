@@ -375,12 +375,38 @@ def footer(depth=""):
   <svg viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.82L2 22l5.44-1.43a9.86 9.86 0 004.6 1.17h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2zm5.8 14.13c-.24.68-1.42 1.3-1.96 1.38-.5.08-1.14.11-1.84-.12-.42-.13-.97-.32-1.66-.63-2.93-1.27-4.84-4.22-4.99-4.42-.15-.2-1.19-1.58-1.19-3.02 0-1.43.75-2.14 1.02-2.43.27-.29.58-.36.78-.36h.56c.18 0 .42-.03.65.5.24.55.83 1.98.9 2.13.07.15.11.32.02.5-.09.19-.14.31-.28.47-.14.16-.29.36-.42.48-.14.14-.28.28-.12.55.16.27.7 1.16 1.51 1.88 1.04.93 1.91 1.22 2.18 1.36.27.14.43.12.59-.07.16-.2.68-.79.86-1.06.18-.27.36-.22.6-.13.24.09 1.55.73 1.81.86.27.13.44.2.51.31.07.11.07.63-.17 1.31z"/></svg>
 </a>
 <footer>
-  <div class="footer-links">
-    <a href="{depth}partners.html">Partner Program</a>
-    <a href="{depth}about.html">About Us</a>
-    <a href="{depth}contact.html">Contact</a>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <p class="footer-col-title">Product</p>
+      <a href="{depth}features/index.html">Features</a>
+      <a href="{depth}pricing.html">Pricing</a>
+      <a href="{depth}integrations.html">Integrations</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Solutions by Industry</p>
+      <a href="{depth}solutions.html#ecommerce-retail">Ecommerce &amp; Retail</a>
+      <a href="{depth}solutions.html#real-estate">Real Estate</a>
+      <a href="{depth}solutions.html#education-coaching">Education &amp; Coaching</a>
+      <a href="{depth}solutions.html#healthcare-clinics">Healthcare &amp; Clinics</a>
+      <a href="{depth}solutions.html#restaurants">Restaurants</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Resources</p>
+      <a href="{depth}resources.html#recover-abandoned-carts">Recovering Abandoned Carts</a>
+      <a href="{depth}resources.html#qualify-real-estate-leads">Qualifying Real Estate Leads</a>
+      <a href="{depth}resources.html#instagram-comments-to-sales">Instagram Comments to Sales</a>
+      <a href="{depth}resources.html#followup-without-forgetting">Automated Follow-Ups</a>
+    </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Company</p>
+      <a href="{depth}about.html">About Us</a>
+      <a href="{depth}partners.html">Partner Program</a>
+      <a href="{depth}contact.html">Contact</a>
+    </div>
   </div>
-  &copy; 2026 <span>Fame Inbox</span>. All rights reserved.
+  <div class="footer-bottom">
+    &copy; 2026 <span>Fame Inbox</span>. All rights reserved.
+  </div>
 </footer>
 <script src="{depth}menu.js"></script>
 <script src="https://bookings.nimbuspop.com/assets/embed.js"></script>
@@ -837,19 +863,19 @@ def build_partners():
         f.write(html)
 
 SOLUTIONS = [
-    ("Ecommerce & Retail", "Turn browsers into buyers on WhatsApp",
+    ("ecommerce-retail", "Ecommerce & Retail", "Turn browsers into buyers on WhatsApp",
      "Recover abandoned carts, send order and delivery updates, and let customers complete purchases with in-chat payments — without ever leaving the conversation.",
      "crm"),
-    ("Real Estate", "Qualify property leads before your team calls",
+    ("real-estate", "Real Estate", "Qualify property leads before your team calls",
      "Let a chatbot ask budget, location, and timeline questions upfront, share listings and brochures instantly, and route serious buyers straight to your agents.",
      "form"),
-    ("Education & Coaching", "Never lose a student inquiry to a missed call",
+    ("education-coaching", "Education & Coaching", "Never lose a student inquiry to a missed call",
      "Answer course questions instantly, collect enrollment details through WhatsApp forms, and send automated reminders for classes, fees, and deadlines.",
      "bot"),
-    ("Healthcare & Clinics", "Simplify appointments and patient follow-ups",
+    ("healthcare-clinics", "Healthcare & Clinics", "Simplify appointments and patient follow-ups",
      "Let patients book and reschedule appointments via chat, send automated reminders to cut no-shows, and keep every patient conversation in one place.",
      "sequence"),
-    ("Restaurants & Cloud Kitchens", "Take orders and manage feedback on WhatsApp",
+    ("restaurants", "Restaurants & Cloud Kitchens", "Take orders and manage feedback on WhatsApp",
      "Share your menu, take orders through a chatbot, send order-ready notifications, and follow up for reviews — all inside the same conversation.",
      "broadcast"),
 ]
@@ -874,9 +900,9 @@ def build_solutions():
 </section>
 <div class="detail-body">
 """
-    for name, headline, desc, icon in SOLUTIONS:
+    for slug, name, headline, desc, icon in SOLUTIONS:
         html += f"""
-  <div class="detail-illustration" style="margin-bottom:14px;">
+  <div id="{slug}" class="detail-illustration" style="margin-bottom:14px;scroll-margin-top:100px;">
     <svg viewBox="0 0 24 24" style="width:48px;height:48px;">{ICONS[icon].replace('stroke="white"', 'stroke="#6E1E42"')}</svg>
   </div>
   <div class="detail-section" style="margin-bottom:40px;">
@@ -1005,7 +1031,7 @@ def build_resources():
             for s in related_slugs
         )
         html += f"""
-  <div class="detail-section" style="margin-bottom:50px;padding-bottom:44px;border-bottom:1px solid var(--line);">
+  <div id="{slug}" class="detail-section" style="margin-bottom:50px;padding-bottom:44px;border-bottom:1px solid var(--line);scroll-margin-top:100px;">
     <span class="eyebrow">{audience}</span>
     <h2 style="font-size:24px;margin:14px 0 16px;">{title}</h2>
     {body}
