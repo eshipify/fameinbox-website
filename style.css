@@ -169,8 +169,8 @@ footer span{color:var(--green);}
   nav.primary > ul{display:flex;flex-direction:column;width:100%;gap:0;}
   nav.primary > ul > li{width:100%;}
   nav.primary > ul > li > a, nav.primary > ul > li > button.navtop{width:100%;justify-content:space-between;padding:16px 24px;border-radius:0;border-bottom:1px solid rgba(255,255,255,.08);}
-  .mega{position:static;width:100%;max-width:100%;transform:none;box-shadow:none;border-radius:0;background:rgba(0,0,0,.15);padding:10px 24px 18px;grid-template-columns:1fr;gap:18px;display:none;opacity:1;max-height:none;overflow:visible;}
-  li.has-mega.open .mega{display:grid;}
+  .mega{position:static !important;left:auto !important;top:auto !important;width:100% !important;max-width:100% !important;transform:none !important;box-shadow:none;border-radius:0;background:rgba(0,0,0,.15);padding:10px 24px 18px;grid-template-columns:1fr !important;gap:18px;display:none;opacity:1;max-height:none;overflow:visible;}
+  li.has-mega.open .mega{display:grid !important;}
   .mega-col-title{color:#E8B4CB;}
   .mega-item h4{color:#fff;}
   .mega-item p{color:rgba(255,255,255,.65);}

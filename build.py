@@ -227,7 +227,7 @@ def head(title, desc, depth="", path=""):
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{desc}">
 
-<link rel="stylesheet" href="{depth}style.css">
+<link rel="stylesheet" href="{depth}style.css?v=6">
 
 <script type="application/ld+json">
 {{
@@ -418,7 +418,7 @@ def footer(depth=""):
     &copy; 2026 <span>Fame Inbox</span>. All rights reserved.
   </div>
 </footer>
-<script src="{depth}menu.js"></script>
+<script src="{depth}menu.js?v=6"></script>
 <script src="https://bookings.nimbuspop.com/assets/embed.js"></script>
 <script>
   Bookings.buttonModal({{
