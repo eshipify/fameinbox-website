@@ -545,6 +545,14 @@ def build_hub():
   <h1>Everything you need, <span class="accent">in one WhatsApp inbox</span></h1>
   <p class="sub">From the first ad click to the final payment confirmation — browse every tool below.</p>
 </section>
+
+<div class="detail-body" style="max-width:1000px;">
+  <div class="product-shot">
+    <img src="../images/dashboard-chat.png" alt="Fame Inbox real dashboard — WhatsApp shared team inbox showing chat list and conversation view" loading="lazy">
+    <p class="product-shot-caption">Your actual Fame Inbox dashboard — customer names and numbers blurred for privacy.</p>
+  </div>
+</div>
+
 <div class="hub-grid">
 """
     for c in CATS:
