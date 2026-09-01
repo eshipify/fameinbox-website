@@ -1111,6 +1111,22 @@ def build_pricing():
   </div>
 
   <div class="price-card">
+    <h3>Official WhatsApp API &amp; Bulk Messaging</h3>
+    <div class="price-amount">₹999<span>/mo (or $99/mo)</span></div>
+    <ul>
+      <li>Connect up to 5 numbers to Official WhatsApp API</li>
+      <li>Import & store up to 1 million contacts in CRM</li>
+      <li>Send messages via APIs, receive via webhooks</li>
+      <li>Custom fields & contact segments</li>
+      <li>Send bulk campaigns</li>
+      <li>Collect payments via WhatsApp native payments</li>
+      <li>Shared inbox for checking & replying to messages</li>
+      <li>Connect external integrations via APIs/webhooks</li>
+    </ul>
+    <a href="https://zbooking.in/1p8sm" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
+  </div>
+
+  <div class="price-card featured">
     <h3>WhatsApp Basic Chatbots &amp; Automations</h3>
     <div class="price-amount">₹2,999<span>/mo (or $199/mo)</span></div>
     <ul>
@@ -1139,22 +1155,6 @@ def build_pricing():
       <li>Drip journeys within 24 hours of last DM</li>
     </ul>
     <a href="https://zbooking.in/1p8sm" class="btn-secondary" target="_blank" rel="noopener">Book a Demo</a>
-  </div>
-
-  <div class="price-card featured">
-    <h3>Official WhatsApp API &amp; Bulk Messaging</h3>
-    <div class="price-amount">₹999<span>/mo (or $99/mo)</span></div>
-    <ul>
-      <li>Connect up to 5 numbers to Official WhatsApp API</li>
-      <li>Import & store up to 1 million contacts in CRM</li>
-      <li>Send messages via APIs, receive via webhooks</li>
-      <li>Custom fields & contact segments</li>
-      <li>Send bulk campaigns</li>
-      <li>Collect payments via WhatsApp native payments</li>
-      <li>Shared inbox for checking & replying to messages</li>
-      <li>Connect external integrations via APIs/webhooks</li>
-    </ul>
-    <a href="https://zbooking.in/1p8sm" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
   </div>
 
 </div>
