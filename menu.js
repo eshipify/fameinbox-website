@@ -1,3 +1,18 @@
+// Announcement bar dismiss
+document.addEventListener('DOMContentLoaded', function () {
+  var bar = document.getElementById('announceBar');
+  var closeBtn = document.getElementById('announceClose');
+  if (!bar || !closeBtn) return;
+  if (localStorage.getItem('fiAnnounceDismissed')) {
+    bar.classList.add('hidden');
+    return;
+  }
+  closeBtn.addEventListener('click', function () {
+    bar.classList.add('hidden');
+    localStorage.setItem('fiAnnounceDismissed', '1');
+  });
+});
+
 // Mobile hamburger menu
 document.addEventListener('DOMContentLoaded', function () {
   var toggle = document.getElementById('navToggle');

@@ -342,7 +342,11 @@ def header(depth=""):
               <p class="mega-col-title">{c}</p>{items}
             </div>"""
 
-    return f"""<header>
+    return f"""<div class="announce-bar" id="announceBar">
+  <p><strong>🎉 New:</strong> Get 1 Month Free when you migrate to Fame Inbox — <a href="{depth}pricing.html">See Plans</a></p>
+  <button class="announce-close" id="announceClose" aria-label="Dismiss">&times;</button>
+</div>
+<header>
   <div class="nav-wrap">
     <a href="{depth}index.html" class="logo">FAME <span>INBOX</span></a>
     <button class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false">
@@ -499,7 +503,7 @@ def footer(depth=""):
 }})();
 </script>
 
-<script src="{depth}menu.js?v=7"></script>
+<script src="{depth}menu.js?v=8"></script>
 <script src="https://bookings.nimbuspop.com/assets/embed.js"></script>
 <script>
   Bookings.buttonModal({{
