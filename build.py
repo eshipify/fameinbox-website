@@ -1098,6 +1098,13 @@ def build_pricing():
   <h1>Plans that <span class="accent">grow with you</span></h1>
   <p class="sub">Simple plans for every stage — from a free trial to full WhatsApp API access.</p>
 </section>
+
+<div class="billing-toggle">
+  <button class="billing-tab active" data-period="monthly">Monthly</button>
+  <button class="billing-tab" data-period="quarterly">Quarterly <span class="save-tag">Save 10%</span></button>
+  <button class="billing-tab" data-period="yearly">Yearly <span class="save-tag">Save 20%</span></button>
+</div>
+
 <div class="pricing-grid">
 
   <div class="price-card">
@@ -1112,7 +1119,7 @@ def build_pricing():
 
   <div class="price-card">
     <h3>Official WhatsApp API &amp; Bulk Messaging</h3>
-    <div class="price-amount">₹999<span>/mo (or $99/mo)</span></div>
+    <div class="price-amount" id="price-999">₹999<span>/mo (or $99/mo)</span></div>
     <ul>
       <li>Connect up to 5 numbers to Official WhatsApp API</li>
       <li>Import & store up to 1 million contacts in CRM</li>
@@ -1128,7 +1135,7 @@ def build_pricing():
 
   <div class="price-card featured">
     <h3>WhatsApp Basic Chatbots &amp; Automations</h3>
-    <div class="price-amount">₹2,999<span>/mo (or $199/mo)</span></div>
+    <div class="price-amount" id="price-2999">₹2,999<span>/mo (or $199/mo)</span></div>
     <ul>
       <li>Connect 5 numbers to Official WhatsApp API</li>
       <li>Import & store up to 1 million contacts in CRM</li>
@@ -1146,7 +1153,7 @@ def build_pricing():
 
   <div class="price-card">
     <h3>Instagram DM Chatbots &amp; Comment Automations</h3>
-    <div class="price-amount">₹5,999<span>/mo (₹5,499 billed annually) — or $99/mo ($999/yr)</span></div>
+    <div class="price-amount" id="price-5999">₹5,999<span>/mo (or $99/mo)</span></div>
     <ul>
       <li>Connect 1 Instagram Professional account</li>
       <li>Store & automate comments for 100,000 contacts</li>
@@ -1158,6 +1165,33 @@ def build_pricing():
   </div>
 
 </div>
+
+<script>
+(function(){
+  var PRICES = {
+    "price-999":  { monthly: "₹999<span>/mo (or $99/mo)</span>",
+                     quarterly: "₹899<span>/mo billed quarterly &middot; ₹2,697 total (or $89/mo)</span>",
+                     yearly: "₹799<span>/mo billed annually &middot; ₹9,590 total (or $79/mo)</span>" },
+    "price-2999": { monthly: "₹2,999<span>/mo (or $199/mo)</span>",
+                     quarterly: "₹2,699<span>/mo billed quarterly &middot; ₹8,097 total (or $179/mo)</span>",
+                     yearly: "₹2,399<span>/mo billed annually &middot; ₹28,790 total (or $159/mo)</span>" },
+    "price-5999": { monthly: "₹5,999<span>/mo (or $99/mo)</span>",
+                     quarterly: "₹5,399<span>/mo billed quarterly &middot; ₹16,197 total (or $89/mo)</span>",
+                     yearly: "₹4,799<span>/mo billed annually &middot; ₹57,590 total (or $79/mo)</span>" }
+  };
+  var tabs = document.querySelectorAll('.billing-tab');
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('active'); });
+      tab.classList.add('active');
+      var period = tab.dataset.period;
+      Object.keys(PRICES).forEach(function(id){
+        document.getElementById(id).innerHTML = PRICES[id][period];
+      });
+    });
+  });
+})();
+</script>
 
 <div class="detail-body">
   <div class="detail-section">
