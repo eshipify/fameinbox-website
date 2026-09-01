@@ -1107,7 +1107,7 @@ def build_pricing():
       <li>WhatsApp + Instagram</li>
       <li>7-day trial of core features before you commit</li>
     </ul>
-    <a href="https://app.fameinbox.com/register" class="btn-secondary" target="_blank" rel="noopener">Start Free Trial</a>
+    <a href="https://app.fameinbox.com/register" class="btn-primary" target="_blank" rel="noopener">Start Free Trial</a>
   </div>
 
   <div class="price-card">
@@ -1154,7 +1154,7 @@ def build_pricing():
       <li>Comment automation for Posts, Reels & Live</li>
       <li>Drip journeys within 24 hours of last DM</li>
     </ul>
-    <a href="https://zbooking.in/1p8sm" class="btn-secondary" target="_blank" rel="noopener">Book a Demo</a>
+    <a href="https://zbooking.in/1p8sm" class="btn-primary" target="_blank" rel="noopener">Book a Demo</a>
   </div>
 
 </div>
