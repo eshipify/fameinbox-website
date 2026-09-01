@@ -235,6 +235,17 @@ li.has-mega.open .mega{display:grid;opacity:1;transform:translateX(-50%) transla
 @media (prefers-reduced-motion:reduce){
   .anim-ripple,.anim-arrow-down,.anim-chat-pop,.anim-qr-line,.anim-bubble-out,.anim-typing-dots span,.anim-check-row,.anim-tl-dot,.anim-handoff-dot,.anim-pay-check{animation:none;opacity:1;}
 }
+.exit-popup-overlay{position:fixed;inset:0;background:rgba(20,20,20,.55);z-index:500;display:none;align-items:center;justify-content:center;padding:20px;}
+.exit-popup-overlay.visible{display:flex;}
+.exit-popup{background:#fff;border-radius:20px;padding:36px 32px;max-width:360px;width:100%;text-align:center;box-shadow:var(--shadow-lg);position:relative;animation:popupIn .25s ease;}
+@keyframes popupIn{from{opacity:0;transform:scale(.94);}to{opacity:1;transform:scale(1);}}
+.exit-popup-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:22px;color:var(--muted);line-height:1;}
+.exit-popup-icon{width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;}
+.exit-popup-icon svg{width:26px;height:26px;}
+.exit-popup h3{margin:0 0 10px;font-size:21px;}
+.exit-popup p{margin:0 0 22px;font-size:14px;color:var(--muted);line-height:1.55;}
+.exit-popup .btn-primary{width:100%;display:block;text-align:center;box-sizing:border-box;}
+.exit-popup-dismiss{background:none;border:none;color:var(--muted);font-size:13px;margin-top:14px;text-decoration:underline;}
 .hero-photo-wrap{position:relative;max-width:420px;margin:70px auto 60px;}
 .hero-photo{width:100%;border-radius:24px;box-shadow:var(--shadow-lg);position:relative;z-index:2;}
 .hero-orbit{position:absolute;inset:-30px;border:2px dashed rgba(20,167,108,.3);border-radius:50%;z-index:1;}

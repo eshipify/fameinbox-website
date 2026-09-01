@@ -77,3 +77,39 @@ document.addEventListener('DOMContentLoaded', function () {
   }, { threshold: 0.15 });
   items.forEach(function (el) { io.observe(el); });
 });
+
+// Exit-intent / delayed popup - shows once per session
+document.addEventListener('DOMContentLoaded', function () {
+  var overlay = document.getElementById('exitPopupOverlay');
+  if (!overlay) return;
+  var closeBtn = document.getElementById('exitPopupClose');
+  var dismissBtn = document.getElementById('exitPopupDismiss');
+  var ctaLink = document.getElementById('exitPopupCta');
+  var shown = false;
+
+  function showPopup() {
+    if (shown || sessionStorage.getItem('fiPopupShown')) return;
+    shown = true;
+    sessionStorage.setItem('fiPopupShown', '1');
+    overlay.classList.add('visible');
+  }
+  function hidePopup() {
+    overlay.classList.remove('visible');
+  }
+
+  var delayTimer = setTimeout(showPopup, 25000);
+
+  document.addEventListener('mouseleave', function (e) {
+    if (e.clientY <= 0) showPopup();
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', hidePopup);
+  if (dismissBtn) dismissBtn.addEventListener('click', hidePopup);
+  if (ctaLink) ctaLink.addEventListener('click', hidePopup);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) hidePopup();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') hidePopup();
+  });
+});
