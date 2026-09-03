@@ -439,6 +439,12 @@ def footer(depth=""):
       <a href="{depth}partners.html">Partner Program</a>
       <a href="{depth}contact.html">Contact</a>
     </div>
+    <div class="footer-col">
+      <p class="footer-col-title">Legal</p>
+      <a href="{depth}terms.html">Terms of Service</a>
+      <a href="{depth}privacy.html">Privacy Policy</a>
+      <a href="{depth}refund.html">Refund &amp; Cancellation</a>
+    </div>
   </div>
   <div class="footer-bottom">
     &copy; 2026 <span>Fame Inbox</span>. All rights reserved.
@@ -1641,9 +1647,168 @@ def build_ads_landing():
 build_resources()
 build_ads_landing()
 
+def build_terms():
+    html = head("Terms of Service — Fame Inbox", "Fame Inbox Terms of Service — subscription terms, acceptable use, and service conditions.", path="terms.html")
+    html += header()
+    html += """
+<section class="page-hero">
+  <span class="eyebrow">Legal</span>
+  <h1>Terms of Service</h1>
+  <p class="sub">Last updated: September 2026</p>
+</section>
+<div class="detail-body">
+  <div class="detail-section">
+
+    <h2>1. Acceptance of Terms</h2>
+    <p>By accessing or using Fame Inbox ("Service", "Platform"), operated by Fame Inbox ("we", "us", "our"), you agree to be bound by these Terms of Service. If you do not agree, do not use the Service.</p>
+
+    <h2>2. Description of Service</h2>
+    <p>Fame Inbox provides a WhatsApp Business API and multi-channel messaging automation platform, including but not limited to chatbots, CRM, broadcasts, team inbox, and related tools, delivered as a white-labeled service built on top of the official WhatsApp Business Platform and other third-party APIs.</p>
+
+    <h2>3. Subscription, Billing &amp; Fees</h2>
+    <p>Use of paid features requires an active subscription on one of our published plans. Subscription fees are billed in advance on a monthly, quarterly, or annual basis as selected at signup, and subscriptions renew automatically unless cancelled prior to the renewal date. Payment obligations are non-cancelable for the current billing period once a cycle has started, regardless of your actual usage of the Service during that period.</p>
+
+    <h2>4. No Refund Policy</h2>
+    <p><strong>All payments made to Fame Inbox are final and non-refundable, under any circumstances, including but not limited to partial use of a billing period, dissatisfaction with the Service, early cancellation, or non-usage.</strong> By subscribing, you acknowledge and agree to this policy. See our <a href="refund.html">Refund &amp; Cancellation Policy</a> for full details.</p>
+
+    <h2>5. Dependency on Third-Party Platforms</h2>
+    <p>The Service relies on the WhatsApp Business Platform, Meta's APIs, and other third-party providers. We are not responsible for outages, policy changes, account restrictions, or number bans imposed by Meta, WhatsApp, or any other third-party platform, even where these affect your ability to use the Service.</p>
+
+    <h2>6. Acceptable Use</h2>
+    <p>You agree not to use the Service to send unsolicited bulk messages, spam, or content that violates WhatsApp's or Meta's commerce and business messaging policies. Violations may result in your WhatsApp number being banned by Meta, for which we bear no responsibility, and may result in suspension or termination of your Fame Inbox account without refund.</p>
+
+    <h2>7. Account Responsibilities</h2>
+    <p>You are responsible for maintaining the confidentiality of your account credentials and for all activity that occurs under your account. You must provide accurate information during signup and keep it up to date.</p>
+
+    <h2>8. Intellectual Property</h2>
+    <p>All content, branding, software, and materials on the Fame Inbox platform, excluding data you upload or generate, remain the property of Fame Inbox or its licensors. You may not copy, resell, or reverse-engineer the Service except as expressly permitted under a separate Partner/Reseller agreement.</p>
+
+    <h2>9. Limitation of Liability</h2>
+    <p>To the fullest extent permitted by law, Fame Inbox shall not be liable for any indirect, incidental, special, or consequential damages, including loss of profits, data, or business opportunity, arising from your use of, or inability to use, the Service.</p>
+
+    <h2>10. Termination</h2>
+    <p>We reserve the right to suspend or terminate your access to the Service for violation of these Terms, non-payment, or misuse of WhatsApp/Meta platform policies, without refund of any fees paid.</p>
+
+    <h2>11. Changes to Terms</h2>
+    <p>We may update these Terms from time to time. Continued use of the Service after changes take effect constitutes acceptance of the revised Terms.</p>
+
+    <h2>12. Governing Law</h2>
+    <p>These Terms are governed by the laws of India, without regard to conflict of law principles.</p>
+
+    <h2>13. Contact</h2>
+    <p>Questions about these Terms can be sent via our <a href="contact.html">Contact page</a>.</p>
+
+  </div>
+</div>
+"""
+    html += footer()
+    with open(os.path.join(ROOT, "terms.html"), "w") as f:
+        f.write(html)
+
+def build_privacy():
+    html = head("Privacy Policy — Fame Inbox", "Fame Inbox Privacy Policy — how we collect, use, and protect your data.", path="privacy.html")
+    html += header()
+    html += """
+<section class="page-hero">
+  <span class="eyebrow">Legal</span>
+  <h1>Privacy Policy</h1>
+  <p class="sub">Last updated: September 2026</p>
+</section>
+<div class="detail-body">
+  <div class="detail-section">
+
+    <h2>1. Information We Collect</h2>
+    <p>We collect information you provide directly, such as your name, email, phone number, business details, and payment information at signup. We also collect data generated through your use of the Service, including contact lists you upload, message content sent and received through connected channels, and usage/analytics data.</p>
+
+    <h2>2. How We Use Your Information</h2>
+    <p>We use collected information to provide, maintain, and improve the Service, process payments, provide customer support, send service-related communications, and comply with legal obligations. We do not sell your personal data to third parties.</p>
+
+    <h2>3. Third-Party API Data (Meta / WhatsApp)</h2>
+    <p>Where the Service integrates with Meta's APIs (WhatsApp Business Platform, Instagram, Facebook Messenger), our use and transfer of information received from those APIs adheres to Meta's Platform Terms and Developer Policies. We do not use data obtained through Meta APIs to serve advertisements.</p>
+
+    <h2>4. Data Sharing</h2>
+    <p>We may share information with third-party service providers who help us operate the Service (e.g. hosting, payment processing, analytics), bound by confidentiality obligations, and where required by law, court order, or governmental request.</p>
+
+    <h2>5. Data Security</h2>
+    <p>We implement industry-standard technical and organizational measures, including encryption in transit, to protect your information. No method of transmission or storage is 100% secure, and we cannot guarantee absolute security.</p>
+
+    <h2>6. Data Retention</h2>
+    <p>We retain your information for as long as your account is active and as needed to comply with legal obligations, resolve disputes, and enforce our agreements. You may request deletion of your data by contacting us, subject to legal retention requirements.</p>
+
+    <h2>7. Cookies</h2>
+    <p>Our website uses cookies and similar technologies for essential site functionality and analytics. You can control cookies through your browser settings.</p>
+
+    <h2>8. Your Rights</h2>
+    <p>Depending on your jurisdiction, you may have rights to access, correct, or delete your personal data. Contact us via our <a href="contact.html">Contact page</a> to make such a request.</p>
+
+    <h2>9. Children's Privacy</h2>
+    <p>The Service is not directed to individuals under 18. We do not knowingly collect personal information from minors.</p>
+
+    <h2>10. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Material changes will be notified through the Service or via email.</p>
+
+    <h2>11. Contact</h2>
+    <p>Questions about this Privacy Policy can be sent via our <a href="contact.html">Contact page</a>.</p>
+
+  </div>
+</div>
+"""
+    html += footer()
+    with open(os.path.join(ROOT, "privacy.html"), "w") as f:
+        f.write(html)
+
+def build_refund():
+    html = head("Refund & Cancellation Policy — Fame Inbox", "Fame Inbox Refund and Cancellation Policy — all subscription payments are final and non-refundable.", path="refund.html")
+    html += header()
+    html += """
+<section class="page-hero">
+  <span class="eyebrow">Legal</span>
+  <h1>Refund &amp; Cancellation Policy</h1>
+  <p class="sub">Last updated: September 2026</p>
+</section>
+<div class="detail-body">
+  <div class="detail-section">
+
+    <div style="background:#FDF1F1;border:1px solid #F3D6D6;border-radius:12px;padding:22px 26px;margin-bottom:32px;">
+      <p style="margin:0;font-weight:700;color:#C0392B;">All payments made to Fame Inbox are final. We do not offer refunds for any reason, including but not limited to partial usage, early cancellation, dissatisfaction with the Service, or non-usage of a billing period.</p>
+    </div>
+
+    <h2>1. No Refunds</h2>
+    <p>Fame Inbox operates on a prepaid subscription model. Once a payment is made for a subscription period (monthly, quarterly, or annual), that payment is final and non-refundable in full or in part, regardless of the extent to which you use the Service during that period.</p>
+
+    <h2>2. One-Time / Setup Fees</h2>
+    <p>Any one-time platform, setup, or onboarding fees charged at the start of a plan are similarly non-refundable once paid.</p>
+
+    <h2>3. Cancellation</h2>
+    <p>You may cancel your subscription at any time to stop future renewals. Cancellation stops the next billing cycle but does not entitle you to a refund for the current or any prior billing period already paid.</p>
+
+    <h2>4. Service Suspension or Termination by Us</h2>
+    <p>If we suspend or terminate your account due to a violation of our <a href="terms.html">Terms of Service</a> or misuse of WhatsApp/Meta platform policies, no refund will be issued for the remaining subscription period.</p>
+
+    <h2>5. Failed or Duplicate Payments</h2>
+    <p>In the event of a genuine duplicate charge or a payment processing error not attributable to your use of the Service, please contact us via our <a href="contact.html">Contact page</a> with your payment details, and we will review the specific case.</p>
+
+    <h2>6. Free Trial</h2>
+    <p>Our free trial is offered at no cost and is not a paid subscription; no payment is collected during the trial period, and this policy applies from the point a paid subscription begins.</p>
+
+    <h2>7. Contact</h2>
+    <p>Questions about billing can be sent via our <a href="contact.html">Contact page</a>.</p>
+
+  </div>
+</div>
+"""
+    html += footer()
+    with open(os.path.join(ROOT, "refund.html"), "w") as f:
+        f.write(html)
+
+build_terms()
+build_privacy()
+build_refund()
+
 def build_sitemap():
     pages = ["", "features/index.html", "pricing.html", "partners.html", "solutions.html",
-             "integrations.html", "resources.html", "about.html", "contact.html"]
+             "integrations.html", "resources.html", "about.html", "contact.html",
+             "terms.html", "privacy.html", "refund.html"]
     pages += [f"features/{f['slug']}.html" for f in FEATURES]
     pages += [f"products/{p['slug']}.html" for p in PRODUCTS]
     urls = "".join(f"""  <url>

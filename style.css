@@ -330,7 +330,7 @@ footer span{color:var(--green);}
 @media (max-width:700px){
   .wa-info-grid{grid-template-columns:1fr;}
 }
-.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.12);}
+.footer-grid{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr);gap:28px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.12);}
 .footer-col{display:flex;flex-direction:column;gap:11px;}
 .footer-col-title{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.5);margin:0 0 4px;}
 .footer-col a{color:rgba(255,255,255,.85);text-decoration:none;font-size:14.5px;}
