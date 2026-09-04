@@ -31,6 +31,8 @@ ICONS = {
     "truck": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="1" y="7" width="13" height="10"/><path d="M14 10h4l3 3v4h-7z"/><circle cx="6" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg>',
     "briefcase": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M2 13h20"/></svg>',
     "car": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 13l2-6h14l2 6v5H3z"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/></svg>',
+    "ticket": '<svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 8a2 2 0 012-2h14a2 2 0 012 2v2a2 2 0 000 4v2a2 2 0 01-2 2H5a2 2 0 01-2-2v-2a2 2 0 000-4z"/><path d="M9 6v12" stroke-dasharray="2 2"/></svg>',
+    "star": '<svg viewBox="0 0 24 24" fill="white" stroke="none"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.8-6.2 3.8 1.6-7L2 9.2l7.1-.6z"/></svg>',
 }
 
 FEATURES = [
@@ -277,6 +279,9 @@ PRODUCTS = [
     {"slug": "qr-ticketing", "name": "QR Ticketing", "cat": "Advanced Channels",
      "tag": "End-to-end event ticketing with QR check-in", "icon": "qr",
      "body": ["Generate digital tickets with secure QR validation, and track attendance in real time — built for conferences, meetups, and events."]},
+    {"slug": "ai-review-qr", "name": "AI Review Link & QR", "cat": "Advanced Channels",
+     "tag": "Turn every customer into a Google review", "icon": "star",
+     "body": ["Generate a shareable review link or QR code for your business location — customers scan it, get an AI-drafted review based on their experience, edit it if they like, and post straight to Google.", "Removes the biggest blocker to getting reviews: not knowing what to write."]},
 ]
 PRODUCT_CATS = ["Commerce & Loyalty", "Automation & Scheduling", "CRM & Operations", "Advanced Channels"]
 
@@ -566,7 +571,15 @@ def build_home():
     html += header()
     html += f"""
 <section class="page-hero">
-  <span class="eyebrow">Trusted by growing businesses &middot; Official Meta Business Partner</span>
+  <div class="meta-partner-badge">
+    <span class="meta-badge-check">&#10003;</span> Official Meta Business Partner
+    <span class="channel-logo-row">
+      <span class="channel-logo wa-logo"><svg viewBox="0 0 24 24" fill="white"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.39 1.26 4.82L2 22l5.44-1.43a9.86 9.86 0 004.6 1.17h.01c5.46 0 9.9-4.45 9.9-9.91C21.95 6.45 17.5 2 12.04 2z"/></svg></span>
+      <span class="channel-logo ig-logo">{ICONS['instagram']}</span>
+      <span class="channel-logo fb-logo">{ICONS['messenger']}</span>
+      <span class="channel-logo google-logo">G</span>
+    </span>
+  </div>
   <h1>Stop Losing Leads in Your<br><span class="accent">WhatsApp Inbox</span></h1>
   <p class="sub">Fame Inbox captures, qualifies, nurtures and closes every WhatsApp conversation automatically — so no lead goes cold waiting on a reply.</p>
   <div class="hero-cta">
@@ -597,6 +610,15 @@ def build_home():
       <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="white" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
       Order Placed
     </span>
+  </div>
+
+  <div class="product-pills">
+    <span class="product-pill"><span class="pill-icon wa-bg">{ICONS['ad']}</span>WhatsApp Automation</span>
+    <span class="product-pill"><span class="pill-icon fb-bg">{ICONS['messenger']}</span>Facebook Comments Automation</span>
+    <span class="product-pill"><span class="pill-icon ig-bg">{ICONS['instagram']}</span>Instagram DM Automation</span>
+    <span class="product-pill"><span class="pill-icon wine-bg">{ICONS['ticket']}</span>Ticket Booking</span>
+    <span class="product-pill"><span class="pill-icon gold-bg">{ICONS['star']}</span>AI Review with Scanner</span>
+    <span class="product-pill"><span class="pill-icon green-bg">{ICONS['radio']}</span>RCS Messaging</span>
   </div>
 
 </section>
